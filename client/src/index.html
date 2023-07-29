@@ -1,91 +1,894 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Scratch Project</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="Irene, Minh, David, Danny, Denton" />
+    <title>Axolotl Flixs</title>
   </head>
   <body>
-    <div class="container">
-      <button
-        class="btn btn-primary"
-        data-bs-toggle="modal"
-        data-bs-target="#modal"
-      >
-        open
-      </button>
-      <div class="modal fade modal-xl" id="modal">
-        <div
-          class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-fullscreen-sm-down"
-        >
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1>Header</h1>
-              <button
-                class="btn-close"
-                data-bs-dismiss="modal"
-                data-bs-target="#modal"
-              >
-                CLOSE
-              </button>
+    <header>
+      <div class="collapse bg-dark" id="navbarHeader">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-md-7 py-4">
+              <h4 class="text-white">About</h4>
+              <p class="text-muted">
+                Add some information about the album below, the author, or any
+                other background context. Make it a few sentences long so folks
+                can pick up some informative tidbits. Then, link them off to
+                some social networking sites or contact information.
+              </p>
             </div>
-            <div class="modal-body">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt msssit anim laboru Lorem ipsum
-              dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-              veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-              ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-              voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-              officia deserunt msssit anim laboru Lorem ipsum dolor sit amet,
-              consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-              labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-              nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-              occaecat cupidatat non proident, sunt in culpa qui officia
-              deserunt msssit anim laboru Lorem ipsum dolor sit amet,
-              consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-              labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-              nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-              occaecat cupidatat non proident, sunt in culpa qui officia
-              deserunt msssit anim laboru
-            </div>
-            <div class="modal-footer">
-              Footer
-              <div class="btn btn-primary" data-bs-dismiss="modal">CLOSE</div>
+            <div class="col-sm-4 offset-md-1 py-4">
+              <h4 class="text-white">Contact</h4>
+              <ul class="list-unstyled">
+                <li><a href="#" class="text-white">Follow on Twitter</a></li>
+                <li><a href="#" class="text-white">Like on Facebook</a></li>
+                <li><a href="#" class="text-white">Email me</a></li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
+      <div class="navbar navbar-expand navbar-dark bg-dark shadow-sm">
+        <div class="container">
+          <a href="#" class="navbar-brand d-flex align-items-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-film"
+              viewBox="0 0 16 16"
+              style="margin-right: 10px"
+            >
+              <path
+                d="M0 1a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V1zm4 0v6h8V1H4zm8 8H4v6h8V9zM1 1v2h2V1H1zm2 3H1v2h2V4zM1 7v2h2V7H1zm2 3H1v2h2v-2zm-2 3v2h2v-2H1zM15 1h-2v2h2V1zm-2 3v2h2V4h-2zm2 3h-2v2h2V7zm-2 3v2h2v-2h-2zm2 3h-2v2h2v-2z"
+              />
+            </svg>
+            <strong>Axolotl Flixs</strong>
+          </a>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a href="#" class="nav-link">Upload</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">Sign in/Sign up</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
 
-      <h1>Hello, Bootstrap and Webpack!</h1>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt msssit anim
-      laboru
-      <button class="btn btn-primary">Primary button</button>
-    </div>
-    <main id="root"></main>
-    <script>
-      const form = document.querySelector('form');
-      form.addEventListener('submit', (e) => {
-        if (!form.checkValidity()) {
-          e.preventDefault();
-        }
-        form.classList.add('was-validated');
-      });
-    </script>
+    <main class="bg-dark-subtle">
+      <section class="py-5 text-center container">
+        <div class="row">
+          <div class="col-md-10 mx-auto">
+            <div id="root"></div>
+            <h1 class="fw-light" id="#studio-heading">
+              STUDIO Name's Published Works
+            </h1>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+              <!--one card-->
+              <div class="col">
+                <div class="card shadow-sm">
+                  <div class="card-header text-start border-0">
+                    <button
+                      type="button"
+                      class="btn btn-sm btn-outline-secondary"
+                      data-bs-toggle="modal"
+                      data-bs-target="#edit-modal"
+                    >
+                      Edit
+                    </button>
+                    <!----Edit Modal that pops up starts-->
+                    <div class="modal fade" id="edit-modal">
+                      <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                          <div class="d-flex justify-content-between m-2">
+                            <h1>Edit Your Film Information</h1>
+                            <button
+                              class="btn-close"
+                              data-bs-dismiss="modal"
+                            ></button>
+                          </div>
+                          <div class="modal-body">
+                            <form id="edit-form">
+                              <div class="form-floating mb-3">
+                                <input
+                                  type="text"
+                                  id="edit-title"
+                                  class="form-control"
+                                  placeholder="Place title here"
+                                />
+                                <label for="edit-title" class="form-label">
+                                  Title
+                                </label>
+                              </div>
+                              <div class="form-floating mb-3">
+                                <input
+                                  type="text"
+                                  id="edit-credits"
+                                  class="form-control"
+                                  placeholder="Place credits here"
+                                />
+                                <label for="edit-credits" class="form-label">
+                                  Credits/Creators</label
+                                >
+                              </div>
+                              <div class="form-floating mb-3">
+                                <input
+                                  type="text"
+                                  id="edit-vidURL"
+                                  class="form-control"
+                                  placeholder="Place URL here"
+                                />
+                                <label for="edit-vidURL" class="form-label">
+                                  URL for your Video</label
+                                >
+                              </div>
+                              <div class="form-floating mb-3">
+                                <textarea
+                                  class="form-control"
+                                  placeholder="Leave a desc"
+                                  id="floatingTextarea2"
+                                  style="height: 100px"
+                                ></textarea>
+                                <label for="floatingTextarea2"
+                                  >Description</label
+                                >
+                              </div>
+                              <div class="form-floating mb-3">
+                                <input
+                                  type="text"
+                                  id="edit-thumbURL"
+                                  class="form-control"
+                                  placeholder="Place URL here"
+                                />
+                                <label for="edit-thumbURL" class="form-label">
+                                  URL for your Thumbnail</label
+                                >
+                              </div>
+                              <div class="d-flex justify-content-between">
+                                <button
+                                  class="btn btn-success"
+                                  data-bs-dismiss="modal"
+                                >
+                                  Submit
+                                </button>
+                                <button
+                                  class="btn btn-danger"
+                                  data-bs-dismiss="modal"
+                                >
+                                  Delete
+                                </button>
+                              </div>
+                            </form>
+                          </div>
+                          <!-- <div class="modal-footer"></div> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!----Edit Modal that pops up ends-->
+
+                  <svg
+                    class="bd-placeholder-img card-img-top"
+                    width="100%"
+                    height="225"
+                    xmlns="http://www.w3.org/2000/svg"
+                    role="img"
+                    aria-label="Placeholder: Thumbnail"
+                    preserveAspectRatio="xMidYMid slice"
+                    focusable="false"
+                  >
+                    <title>Placeholder</title>
+                    <rect width="100%" height="100%" fill="#55595c" />
+                    <text x="50%" y="50%" fill="#eceeef" dy=".3em">
+                      Thumbnail
+                    </text>
+                  </svg>
+
+                  <div class="card-body">
+                    <p class="card-text">
+                      This is a wider card with supporting text below as a
+                      natural lead-in to additional content. This content is a
+                      little bit longer.
+                    </p>
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <div class="btn-group">
+                        <button
+                          type="button"
+                          class="btn btn-sm btn-outline-secondary"
+                        >
+                          View
+                        </button>
+                      </div>
+                      <small class="text-muted">9 mins</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--one card-->
+
+              <div class="col">
+                <div class="card shadow-sm">
+                  <div class="card-header text-start border-0">
+                    <button
+                      type="button"
+                      class="btn btn-sm btn-outline-secondary"
+                      data-bs-toggle="modal"
+                      data-bs-target="#edit-modal"
+                    >
+                      Edit
+                    </button>
+                    <!----Edit Modal that pops up starts-->
+                    <div class="modal fade" id="edit-modal">
+                      <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                          <div class="d-flex justify-content-between m-2">
+                            <h1>Edit Your Film Information</h1>
+                            <button
+                              class="btn-close"
+                              data-bs-dismiss="modal"
+                            ></button>
+                          </div>
+                          <div class="modal-body">
+                            <form id="edit-form">
+                              <div class="form-floating mb-3">
+                                <input
+                                  type="text"
+                                  id="edit-title"
+                                  class="form-control"
+                                  placeholder="Place title here"
+                                />
+                                <label for="edit-title" class="form-label">
+                                  Title
+                                </label>
+                              </div>
+                              <div class="form-floating mb-3">
+                                <input
+                                  type="text"
+                                  id="edit-credits"
+                                  class="form-control"
+                                  placeholder="Place credits here"
+                                />
+                                <label for="edit-credits" class="form-label">
+                                  Credits/Creators</label
+                                >
+                              </div>
+                              <div class="form-floating mb-3">
+                                <input
+                                  type="text"
+                                  id="edit-vidURL"
+                                  class="form-control"
+                                  placeholder="Place URL here"
+                                />
+                                <label for="edit-vidURL" class="form-label">
+                                  URL for your Video</label
+                                >
+                              </div>
+                              <div class="form-floating mb-3">
+                                <textarea
+                                  class="form-control"
+                                  placeholder="Leave a desc"
+                                  id="floatingTextarea2"
+                                  style="height: 100px"
+                                ></textarea>
+                                <label for="floatingTextarea2"
+                                  >Description</label
+                                >
+                              </div>
+                              <div class="form-floating mb-3">
+                                <input
+                                  type="text"
+                                  id="edit-thumbURL"
+                                  class="form-control"
+                                  placeholder="Place URL here"
+                                />
+                                <label for="edit-thumbURL" class="form-label">
+                                  URL for your Thumbnail</label
+                                >
+                              </div>
+                              <div class="d-flex justify-content-between">
+                                <button
+                                  class="btn btn-success"
+                                  data-bs-dismiss="modal"
+                                >
+                                  Submit
+                                </button>
+                                <button
+                                  class="btn btn-danger"
+                                  data-bs-dismiss="modal"
+                                >
+                                  Delete
+                                </button>
+                              </div>
+                            </form>
+                          </div>
+                          <!-- <div class="modal-footer"></div> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!----Edit Modal that pops up ends-->
+
+                  <svg
+                    class="bd-placeholder-img card-img-top"
+                    width="100%"
+                    height="225"
+                    xmlns="http://www.w3.org/2000/svg"
+                    role="img"
+                    aria-label="Placeholder: Thumbnail"
+                    preserveAspectRatio="xMidYMid slice"
+                    focusable="false"
+                  >
+                    <title>Placeholder</title>
+                    <rect width="100%" height="100%" fill="#55595c" />
+                    <text x="50%" y="50%" fill="#eceeef" dy=".3em">
+                      Thumbnail
+                    </text>
+                  </svg>
+
+                  <div class="card-body">
+                    <p class="card-text">
+                      This is a wider card with supporting text below as a
+                      natural lead-in to additional content. This content is a
+                      little bit longer.
+                    </p>
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <div class="btn-group">
+                        <button
+                          type="button"
+                          class="btn btn-sm btn-outline-secondary"
+                        >
+                          View
+                        </button>
+                      </div>
+                      <small class="text-muted">9 mins</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col">
+                <div class="card shadow-sm">
+                  <div class="card-header text-start border-0">
+                    <button
+                      type="button"
+                      class="btn btn-sm btn-outline-secondary"
+                      data-bs-toggle="modal"
+                      data-bs-target="#edit-modal"
+                    >
+                      Edit
+                    </button>
+                    <!----Edit Modal that pops up starts-->
+                    <div class="modal fade" id="edit-modal">
+                      <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                          <div class="d-flex justify-content-between m-2">
+                            <h1>Edit Your Film Information</h1>
+                            <button
+                              class="btn-close"
+                              data-bs-dismiss="modal"
+                            ></button>
+                          </div>
+                          <div class="modal-body">
+                            <form id="edit-form">
+                              <div class="form-floating mb-3">
+                                <input
+                                  type="text"
+                                  id="edit-title"
+                                  class="form-control"
+                                  placeholder="Place title here"
+                                />
+                                <label for="edit-title" class="form-label">
+                                  Title
+                                </label>
+                              </div>
+                              <div class="form-floating mb-3">
+                                <input
+                                  type="text"
+                                  id="edit-credits"
+                                  class="form-control"
+                                  placeholder="Place credits here"
+                                />
+                                <label for="edit-credits" class="form-label">
+                                  Credits/Creators</label
+                                >
+                              </div>
+                              <div class="form-floating mb-3">
+                                <input
+                                  type="text"
+                                  id="edit-vidURL"
+                                  class="form-control"
+                                  placeholder="Place URL here"
+                                />
+                                <label for="edit-vidURL" class="form-label">
+                                  URL for your Video</label
+                                >
+                              </div>
+                              <div class="form-floating mb-3">
+                                <textarea
+                                  class="form-control"
+                                  placeholder="Leave a desc"
+                                  id="floatingTextarea2"
+                                  style="height: 100px"
+                                ></textarea>
+                                <label for="floatingTextarea2"
+                                  >Description</label
+                                >
+                              </div>
+                              <div class="form-floating mb-3">
+                                <input
+                                  type="text"
+                                  id="edit-thumbURL"
+                                  class="form-control"
+                                  placeholder="Place URL here"
+                                />
+                                <label for="edit-thumbURL" class="form-label">
+                                  URL for your Thumbnail</label
+                                >
+                              </div>
+                              <div class="d-flex justify-content-between">
+                                <button
+                                  class="btn btn-success"
+                                  data-bs-dismiss="modal"
+                                >
+                                  Submit
+                                </button>
+                                <button
+                                  class="btn btn-danger"
+                                  data-bs-dismiss="modal"
+                                >
+                                  Delete
+                                </button>
+                              </div>
+                            </form>
+                          </div>
+                          <!-- <div class="modal-footer"></div> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!----Edit Modal that pops up ends-->
+
+                  <svg
+                    class="bd-placeholder-img card-img-top"
+                    width="100%"
+                    height="225"
+                    xmlns="http://www.w3.org/2000/svg"
+                    role="img"
+                    aria-label="Placeholder: Thumbnail"
+                    preserveAspectRatio="xMidYMid slice"
+                    focusable="false"
+                  >
+                    <title>Placeholder</title>
+                    <rect width="100%" height="100%" fill="#55595c" />
+                    <text x="50%" y="50%" fill="#eceeef" dy=".3em">
+                      Thumbnail
+                    </text>
+                  </svg>
+
+                  <div class="card-body">
+                    <p class="card-text">
+                      This is a wider card with supporting text below as a
+                      natural lead-in to additional content. This content is a
+                      little bit longer.
+                    </p>
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <div class="btn-group">
+                        <button
+                          type="button"
+                          class="btn btn-sm btn-outline-secondary"
+                        >
+                          View
+                        </button>
+                      </div>
+                      <small class="text-muted">9 mins</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- WHere the random generated videos come from -->
+      <div class="album py-5 bg-dark">
+        <div class="container">
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <div class="col">
+              <div class="card shadow-sm">
+                <svg
+                  class="bd-placeholder-img card-img-top"
+                  width="100%"
+                  height="225"
+                  xmlns="http://www.w3.org/2000/svg"
+                  role="img"
+                  aria-label="Placeholder: Thumbnail"
+                  preserveAspectRatio="xMidYMid slice"
+                  focusable="false"
+                >
+                  <title>Placeholder</title>
+                  <rect width="100%" height="100%" fill="#55595c" />
+                  <text x="50%" y="50%" fill="#eceeef" dy=".3em">
+                    Thumbnail
+                  </text>
+                </svg>
+
+                <div class="card-body">
+                  <p class="card-text">
+                    This is a wider card with supporting text below as a natural
+                    lead-in to additional content. This content is a little bit
+                    longer.
+                  </p>
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <div class="btn-group">
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-outline-secondary"
+                      >
+                        View
+                      </button>
+                    </div>
+                    <small class="text-muted">9 mins</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card shadow-sm">
+                <svg
+                  class="bd-placeholder-img card-img-top"
+                  width="100%"
+                  height="225"
+                  xmlns="http://www.w3.org/2000/svg"
+                  role="img"
+                  aria-label="Placeholder: Thumbnail"
+                  preserveAspectRatio="xMidYMid slice"
+                  focusable="false"
+                >
+                  <title>Placeholder</title>
+                  <rect width="100%" height="100%" fill="#55595c" />
+                  <text x="50%" y="50%" fill="#eceeef" dy=".3em">
+                    Thumbnail
+                  </text>
+                </svg>
+
+                <div class="card-body">
+                  <p class="card-text">
+                    This is a wider card with supporting text below as a natural
+                    lead-in to additional content. This content is a little bit
+                    longer.
+                  </p>
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <div class="btn-group">
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-outline-secondary"
+                      >
+                        View
+                      </button>
+                    </div>
+                    <small class="text-muted">9 mins</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card shadow-sm">
+                <svg
+                  class="bd-placeholder-img card-img-top"
+                  width="100%"
+                  height="225"
+                  xmlns="http://www.w3.org/2000/svg"
+                  role="img"
+                  aria-label="Placeholder: Thumbnail"
+                  preserveAspectRatio="xMidYMid slice"
+                  focusable="false"
+                >
+                  <title>Placeholder</title>
+                  <rect width="100%" height="100%" fill="#55595c" />
+                  <text x="50%" y="50%" fill="#eceeef" dy=".3em">
+                    Thumbnail
+                  </text>
+                </svg>
+
+                <div class="card-body">
+                  <p class="card-text">
+                    This is a wider card with supporting text below as a natural
+                    lead-in to additional content. This content is a little bit
+                    longer.
+                  </p>
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <div class="btn-group">
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-outline-secondary"
+                      >
+                        View
+                      </button>
+                    </div>
+                    <small class="text-muted">9 mins</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="card shadow-sm">
+                <svg
+                  class="bd-placeholder-img card-img-top"
+                  width="100%"
+                  height="225"
+                  xmlns="http://www.w3.org/2000/svg"
+                  role="img"
+                  aria-label="Placeholder: Thumbnail"
+                  preserveAspectRatio="xMidYMid slice"
+                  focusable="false"
+                >
+                  <title>Placeholder</title>
+                  <rect width="100%" height="100%" fill="#55595c" />
+                  <text x="50%" y="50%" fill="#eceeef" dy=".3em">
+                    Thumbnail
+                  </text>
+                </svg>
+
+                <div class="card-body">
+                  <p class="card-text">
+                    This is a wider card with supporting text below as a natural
+                    lead-in to additional content. This content is a little bit
+                    longer.
+                  </p>
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <div class="btn-group">
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-outline-secondary"
+                      >
+                        View
+                      </button>
+                    </div>
+                    <small class="text-muted">9 mins</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card shadow-sm">
+                <svg
+                  class="bd-placeholder-img card-img-top"
+                  width="100%"
+                  height="225"
+                  xmlns="http://www.w3.org/2000/svg"
+                  role="img"
+                  aria-label="Placeholder: Thumbnail"
+                  preserveAspectRatio="xMidYMid slice"
+                  focusable="false"
+                >
+                  <title>Placeholder</title>
+                  <rect width="100%" height="100%" fill="#55595c" />
+                  <text x="50%" y="50%" fill="#eceeef" dy=".3em">
+                    Thumbnail
+                  </text>
+                </svg>
+
+                <div class="card-body">
+                  <p class="card-text">
+                    This is a wider card with supporting text below as a natural
+                    lead-in to additional content. This content is a little bit
+                    longer.
+                  </p>
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <div class="btn-group">
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-outline-secondary"
+                      >
+                        View
+                      </button>
+                    </div>
+                    <small class="text-muted">9 mins</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card shadow-sm">
+                <svg
+                  class="bd-placeholder-img card-img-top"
+                  width="100%"
+                  height="225"
+                  xmlns="http://www.w3.org/2000/svg"
+                  role="img"
+                  aria-label="Placeholder: Thumbnail"
+                  preserveAspectRatio="xMidYMid slice"
+                  focusable="false"
+                >
+                  <title>Placeholder</title>
+                  <rect width="100%" height="100%" fill="#55595c" />
+                  <text x="50%" y="50%" fill="#eceeef" dy=".3em">
+                    Thumbnail
+                  </text>
+                </svg>
+
+                <div class="card-body">
+                  <p class="card-text">
+                    This is a wider card with supporting text below as a natural
+                    lead-in to additional content. This content is a little bit
+                    longer.
+                  </p>
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <div class="btn-group">
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-outline-secondary"
+                      >
+                        View
+                      </button>
+                    </div>
+                    <small class="text-muted">9 mins</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="card shadow-sm">
+                <svg
+                  class="bd-placeholder-img card-img-top"
+                  width="100%"
+                  height="225"
+                  xmlns="http://www.w3.org/2000/svg"
+                  role="img"
+                  aria-label="Placeholder: Thumbnail"
+                  preserveAspectRatio="xMidYMid slice"
+                  focusable="false"
+                >
+                  <title>Placeholder</title>
+                  <rect width="100%" height="100%" fill="#55595c" />
+                  <text x="50%" y="50%" fill="#eceeef" dy=".3em">
+                    Thumbnail
+                  </text>
+                </svg>
+
+                <div class="card-body">
+                  <p class="card-text">
+                    This is a wider card with supporting text below as a natural
+                    lead-in to additional content. This content is a little bit
+                    longer.
+                  </p>
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <div class="btn-group">
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-outline-secondary"
+                      >
+                        View
+                      </button>
+                    </div>
+                    <small class="text-muted">9 mins</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card shadow-sm">
+                <svg
+                  class="bd-placeholder-img card-img-top"
+                  width="100%"
+                  height="225"
+                  xmlns="http://www.w3.org/2000/svg"
+                  role="img"
+                  aria-label="Placeholder: Thumbnail"
+                  preserveAspectRatio="xMidYMid slice"
+                  focusable="false"
+                >
+                  <title>Placeholder</title>
+                  <rect width="100%" height="100%" fill="#55595c" />
+                  <text x="50%" y="50%" fill="#eceeef" dy=".3em">
+                    Thumbnail
+                  </text>
+                </svg>
+
+                <div class="card-body">
+                  <p class="card-text">
+                    This is a wider card with supporting text below as a natural
+                    lead-in to additional content. This content is a little bit
+                    longer.
+                  </p>
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <div class="btn-group">
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-outline-secondary"
+                      >
+                        View
+                      </button>
+                    </div>
+                    <small class="text-muted">9 mins</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card shadow-sm">
+                <svg
+                  class="bd-placeholder-img card-img-top"
+                  width="100%"
+                  height="225"
+                  xmlns="http://www.w3.org/2000/svg"
+                  role="img"
+                  aria-label="Placeholder: Thumbnail"
+                  preserveAspectRatio="xMidYMid slice"
+                  focusable="false"
+                >
+                  <title>Placeholder</title>
+                  <rect width="100%" height="100%" fill="#55595c" />
+                  <text x="50%" y="50%" fill="#eceeef" dy=".3em">
+                    Thumbnail
+                  </text>
+                </svg>
+
+                <div class="card-body">
+                  <p class="card-text">
+                    This is a wider card with supporting text below as a natural
+                    lead-in to additional content. This content is a little bit
+                    longer.
+                  </p>
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <div class="btn-group">
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-outline-secondary"
+                      >
+                        View
+                      </button>
+                    </div>
+                    <small class="text-muted">9 mins</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="text-muted py-2">
+      <div class="container">
+        <p class="float-end mb-1">
+          <a href="#">Back to top</a>
+        </p>
+        <p class="m-4">This is the bottom footer</p>
+      </div>
+    </footer>
   </body>
 </html>
