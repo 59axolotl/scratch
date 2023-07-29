@@ -17,6 +17,14 @@ $primary: purple;
   user-select: none;
 }
 
+.modal-content h1 {
+  padding: 20px;
+}
+
+#studio-heading {
+  margin-top: 0; /* Set the top margin to 0 */
+}
+
 @media (min-width: 768px) {
   .bd-placeholder-img-lg {
     font-size: 3.5rem;
