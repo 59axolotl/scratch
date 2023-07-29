@@ -4,7 +4,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   mode: process.env.NODE_ENV,
-  entry: { bundle: "./src/index.js" },
+  entry: { bundle: "./client/src/index.js" },
   output: {
     path: path.join(__dirname, "/dist"),
     filename: "bundle.js",
@@ -22,7 +22,7 @@ module.exports = {
   },
   plugins: [
     new HTMLWebpackPlugin({
-      template: "./src/index.html",
+      template: "./client/src/index.html",
     }),
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',
@@ -31,7 +31,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,``
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
@@ -65,3 +65,5 @@ module.exports = {
     extensions: [".js", ".jsx"],
   },
 };
+
+
