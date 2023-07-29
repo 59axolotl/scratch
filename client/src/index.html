@@ -66,10 +66,12 @@
       <section class="py-5 text-center container">
         <div class="row">
           <div class="col-md-10 mx-auto">
+            <div id="root"></div>
             <h1 class="fw-light" id="#studio-heading">
               STUDIO Name's Published Works
             </h1>
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+              <!--one card-->
               <div class="col">
                 <div class="card shadow-sm">
                   <div class="card-header text-start border-0">
@@ -211,16 +213,110 @@
                   </div>
                 </div>
               </div>
+              <!--one card-->
+
               <div class="col">
                 <div class="card shadow-sm">
                   <div class="card-header text-start border-0">
                     <button
                       type="button"
                       class="btn btn-sm btn-outline-secondary"
+                      data-bs-toggle="modal"
+                      data-bs-target="#edit-modal"
                     >
                       Edit
                     </button>
+                    <!----Edit Modal that pops up starts-->
+                    <div class="modal fade" id="edit-modal">
+                      <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                          <div class="d-flex justify-content-between m-2">
+                            <h1>Edit Your Film Information</h1>
+                            <button
+                              class="btn-close"
+                              data-bs-dismiss="modal"
+                            ></button>
+                          </div>
+                          <div class="modal-body">
+                            <form id="edit-form">
+                              <div class="form-floating mb-3">
+                                <input
+                                  type="text"
+                                  id="edit-title"
+                                  class="form-control"
+                                  placeholder="Place title here"
+                                />
+                                <label for="edit-title" class="form-label">
+                                  Title
+                                </label>
+                              </div>
+                              <div class="form-floating mb-3">
+                                <input
+                                  type="text"
+                                  id="edit-credits"
+                                  class="form-control"
+                                  placeholder="Place credits here"
+                                />
+                                <label for="edit-credits" class="form-label">
+                                  Credits/Creators</label
+                                >
+                              </div>
+                              <div class="form-floating mb-3">
+                                <input
+                                  type="text"
+                                  id="edit-vidURL"
+                                  class="form-control"
+                                  placeholder="Place URL here"
+                                />
+                                <label for="edit-vidURL" class="form-label">
+                                  URL for your Video</label
+                                >
+                              </div>
+                              <div class="form-floating mb-3">
+                                <textarea
+                                  class="form-control"
+                                  placeholder="Leave a desc"
+                                  id="floatingTextarea2"
+                                  style="height: 100px"
+                                ></textarea>
+                                <label for="floatingTextarea2"
+                                  >Description</label
+                                >
+                              </div>
+                              <div class="form-floating mb-3">
+                                <input
+                                  type="text"
+                                  id="edit-thumbURL"
+                                  class="form-control"
+                                  placeholder="Place URL here"
+                                />
+                                <label for="edit-thumbURL" class="form-label">
+                                  URL for your Thumbnail</label
+                                >
+                              </div>
+                              <div class="d-flex justify-content-between">
+                                <button
+                                  class="btn btn-success"
+                                  data-bs-dismiss="modal"
+                                >
+                                  Submit
+                                </button>
+                                <button
+                                  class="btn btn-danger"
+                                  data-bs-dismiss="modal"
+                                >
+                                  Delete
+                                </button>
+                              </div>
+                            </form>
+                          </div>
+                          <!-- <div class="modal-footer"></div> -->
+                        </div>
+                      </div>
+                    </div>
                   </div>
+                  <!----Edit Modal that pops up ends-->
+
                   <svg
                     class="bd-placeholder-img card-img-top"
                     width="100%"
@@ -260,16 +356,109 @@
                   </div>
                 </div>
               </div>
+
               <div class="col">
                 <div class="card shadow-sm">
                   <div class="card-header text-start border-0">
                     <button
                       type="button"
                       class="btn btn-sm btn-outline-secondary"
+                      data-bs-toggle="modal"
+                      data-bs-target="#edit-modal"
                     >
                       Edit
                     </button>
+                    <!----Edit Modal that pops up starts-->
+                    <div class="modal fade" id="edit-modal">
+                      <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                          <div class="d-flex justify-content-between m-2">
+                            <h1>Edit Your Film Information</h1>
+                            <button
+                              class="btn-close"
+                              data-bs-dismiss="modal"
+                            ></button>
+                          </div>
+                          <div class="modal-body">
+                            <form id="edit-form">
+                              <div class="form-floating mb-3">
+                                <input
+                                  type="text"
+                                  id="edit-title"
+                                  class="form-control"
+                                  placeholder="Place title here"
+                                />
+                                <label for="edit-title" class="form-label">
+                                  Title
+                                </label>
+                              </div>
+                              <div class="form-floating mb-3">
+                                <input
+                                  type="text"
+                                  id="edit-credits"
+                                  class="form-control"
+                                  placeholder="Place credits here"
+                                />
+                                <label for="edit-credits" class="form-label">
+                                  Credits/Creators</label
+                                >
+                              </div>
+                              <div class="form-floating mb-3">
+                                <input
+                                  type="text"
+                                  id="edit-vidURL"
+                                  class="form-control"
+                                  placeholder="Place URL here"
+                                />
+                                <label for="edit-vidURL" class="form-label">
+                                  URL for your Video</label
+                                >
+                              </div>
+                              <div class="form-floating mb-3">
+                                <textarea
+                                  class="form-control"
+                                  placeholder="Leave a desc"
+                                  id="floatingTextarea2"
+                                  style="height: 100px"
+                                ></textarea>
+                                <label for="floatingTextarea2"
+                                  >Description</label
+                                >
+                              </div>
+                              <div class="form-floating mb-3">
+                                <input
+                                  type="text"
+                                  id="edit-thumbURL"
+                                  class="form-control"
+                                  placeholder="Place URL here"
+                                />
+                                <label for="edit-thumbURL" class="form-label">
+                                  URL for your Thumbnail</label
+                                >
+                              </div>
+                              <div class="d-flex justify-content-between">
+                                <button
+                                  class="btn btn-success"
+                                  data-bs-dismiss="modal"
+                                >
+                                  Submit
+                                </button>
+                                <button
+                                  class="btn btn-danger"
+                                  data-bs-dismiss="modal"
+                                >
+                                  Delete
+                                </button>
+                              </div>
+                            </form>
+                          </div>
+                          <!-- <div class="modal-footer"></div> -->
+                        </div>
+                      </div>
+                    </div>
                   </div>
+                  <!----Edit Modal that pops up ends-->
+
                   <svg
                     class="bd-placeholder-img card-img-top"
                     width="100%"
