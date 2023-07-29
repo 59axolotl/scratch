@@ -1,7 +1,14 @@
-import React from "react";
+// Import our custom CSS
+import './styles.scss';
+
+// Import all of Bootstrap's JS
+import * as bootstrap from 'bootstrap';
+
+import React from 'react';
 import { createRoot } from 'react-dom/client';
 import App from '../components/App';
 
 console.log(document.getElementById('root'));
 const root = createRoot(document.getElementById('root'));
+
 root.render(<App />);
