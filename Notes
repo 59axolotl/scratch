@@ -1,0 +1,5 @@
+
+Bootstrap only:
+npm i --save bootstrap @popperjs/core
+postcss-loader
+autoprefixer
