@@ -332,6 +332,14 @@ const Feed = () => {
             </div>
           </div>
         </div>
+        <div className="d-flex justify-content-between my-3">
+          <button className="btn-outline-secondary" data-bs-dismiss="modal">
+            Submit
+          </button>
+          <button className="btn btn-outline-secondary" data-bs-dismiss="modal">
+            Delete
+          </button>
+        </div>
       </div>
     </div>
   );
