@@ -1,9 +1,9 @@
 import React from 'react';
 import '../src/styles.scss';
-import Navbar from './Navbar';
+import Home from './Home';
 
 const App = () => {
-  return <Navbar />;
+  return <Home />;
 };
 
 export default App;
