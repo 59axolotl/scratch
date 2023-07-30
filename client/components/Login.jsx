@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import { Button, Form, FormControl, FormLabel } from 'react-bootstrap';
+import React, { useState } from "react";
+// import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { Button, Form, FormControl, FormLabel } from "react-bootstrap";
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
   const login = (event) => {
     event.preventDefault();
     axios
       .post(
-        'http://localhost:3000/api/creators/login',
+        "http://localhost:3000/api/creators/login",
         {
           email: email,
           password: password,
@@ -25,20 +25,21 @@ const Login = () => {
         }
       )
       .then((res) => {
-        console.log(res, 'res');
-        console.log(res.data, 'is res data.');
-        navigate('/');
+        console.log(res, "res");
+        console.log(res.data, "is res data.");
+        navigate("/");
       })
       .catch((err) => {
         console.log(err.response.data);
         setErrorMessage(err.response.data.message);
+        ``;
       });
   };
 
   return (
     <div>
       <h1>Login</h1>
-      <p className="error-text">{errorMessage ? errorMessage : ''}</p>
+      <p className="error-text">{errorMessage ? errorMessage : ""}</p>
       <Form onSubmit={login}>
         <Form.Group className="row justify-content-center mb-3">
           <FormLabel>Email</FormLabel>

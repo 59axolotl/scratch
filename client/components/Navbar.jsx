@@ -1,6 +1,7 @@
 import React from 'react';
 import '../src/styles.scss';
 import UploadForm from './UploadForm';
+import Register from './Register'
 
 const Navbar = () => {
   return (
