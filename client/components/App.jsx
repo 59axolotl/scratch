@@ -1,12 +1,9 @@
 import React from 'react';
 import '../src/styles.scss';
+import Navbar from './Navbar';
 
 const App = () => {
-  return (
-    <div id="container">
-      THIS IS WHERE THE REACT CODE SHOULD BEGIN AND CHANGE App
-    </div>
-  );
+  return <Navbar />;
 };
 
 export default App;
