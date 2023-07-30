@@ -3,6 +3,7 @@ import '../src/styles.scss';
 import Navbar from './Navbar';
 import UserUploads from './UserUploads';
 import Feed from './Feed';
+import Footer from './Footer';
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
         <UserUploads />
         <Feed />
       </main>
+      <Footer />
     </>
   );
 };
