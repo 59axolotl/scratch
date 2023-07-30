@@ -1,8 +1,0 @@
-
-Bootstrap only:
-npm i --save bootstrap @popperjs/core
-postcss-loader
-autoprefixer
-
-const mongoURI =
-    "mongodb+srv://vvisdomr:CxHYgxEp1AkUBUfz@cluster0.kjhoa47.mongodb.net/?retryWrites=true&w=majority";
