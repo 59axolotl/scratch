@@ -9,19 +9,40 @@ module.exports = {
   output: {
     path: path.join(__dirname, '/dist'),
     filename: 'bundle.js',
+    publicPath: '/',
   },
   devServer: {
     host: 'localhost',
     port: 8080,
     hot: true,
+    //From DM's proxy settings
     proxy: {
-      '/': 'http://localhost:3000/',
+      '/api/**': {
+        target: 'http://localhost:3000/',
+        secure: false,
+        onProxyRes: (response) => {
+          response.headers['access-control-allow-origin'] =
+            'http://localhost:8080';
+        },
+        changeOrigin: true, // Changes the origin of the host header to the target URL,
+        // useful for if the server at the target URL expects requests from a specific origin
+      },
     },
     static: {
       directory: path.resolve(__dirname, 'dist'),
       publicPath: '/',
     },
+    historyApiFallback: true,
+    headers: {
+      'Access-Control-Allow-Origin': 'http://localhost:8080/',
+      'Access-Control-Allow-Credentials': 'true',
+      'Access-Control-Allow-Headers':
+        'Origin, X-Requested-With, Content-Type, Accept',
+      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, DELETE',
+    },
+    open: true,
   },
+
   plugins: [
     new HTMLWebpackPlugin({
       template: './client/src/index.html',

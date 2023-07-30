@@ -1,7 +1,30 @@
-$primary: purple;
-
 @import 'bootstrap/scss/bootstrap';
 
 .box {
-  background-color: blue;
+  background-color: $primary;
+  border: 1px solid blue;
+  min-height: 50px;
+  font-size: 2rem;
+}
+
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.modal-content h1 {
+  padding: 20px;
+}
+
+#studio-heading {
+  margin-top: 0; /* Set the top margin to 0 */
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
 }
