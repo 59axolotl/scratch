@@ -1,4 +1,4 @@
-import { react, useState } from 'react';
+import { react, useState, useEffect } from 'react';
 import axios from 'axios';
 import { Form, FormControl, FormLabel, Button } from 'react-bootstrap';
 
@@ -23,7 +23,36 @@ const Register = (props) => {
     });
   };
 
-  const register = (e) => {
+  //FETCH FROM DB
+  useEffect(() => {
+    fetch('/api/creators/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        // setUser(...newAccountInfo);
+        console.log('SUCCESSFULLY CREATED NEW USER!!LOG IN NOW!!')
+      })
+      .then((res) => {
+        setUser({
+          username: '',
+          email: '',
+          password: '',
+          confirmPassword: '',
+          studio: '',
+        });
+        setConfirmReg('Thank you for registering, you can now log in.');
+        setErrors({}); //resetting error state if it was successful
+      })
+      .catch((err) => {
+        console.error('An error occurred while POSTING new user info: ', err);
+      });
+  });
+
+  const register = (e) => {``
     e.preventDefault();
     axios
       .post('http://localhost:3000/api/creators/register', user, {
