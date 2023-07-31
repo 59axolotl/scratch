@@ -2,11 +2,25 @@ import { react, useState, useEffect } from "react";
 import { Form, FormControl, FormLabel, Button } from "react-bootstrap";
 
 import React from "react";
+import { react, useState, useEffect } from "react";
+import { Form, FormControl, FormLabel, Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+import React from "react";
 
 const Register = (props) => {
     const [confirmReg, setConfirmReg] = useState("");
     const [errors, setErrors] = useState({});
 
+    const [user, setUser] = useState({
+        username: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+        studio: "",
+    });
+    const [confirmReg, setConfirmReg] = useState("");
+    const [errors, setErrors] = useState({});
+    const navigate = useNavigate();
     const [user, setUser] = useState({
         username: "",
         email: "",
@@ -52,7 +66,6 @@ const Register = (props) => {
                     "An error occurred while POSTING new user info: ",
                     err
                 );
-                setErrors(err.response.data.errors);
             });
     };
 

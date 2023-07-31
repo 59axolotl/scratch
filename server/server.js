@@ -1,6 +1,6 @@
-require("dotenv").config();
-const express = require("express");
-const path = require("path");
+require('dotenv').config();
+const express = require('express');
+const path = require('path');
 const app = express();
 const PORT = 3000;
 const cookieParser = require("cookie-parser");
@@ -18,24 +18,25 @@ app.use(cors({
   credentials: true
 }));
 
-app.use(express.static(path.join(__dirname, "../dist")));
+
+app.use(express.static(path.join(__dirname, '../dist')));
 
 // require routers
 require("./routes/creatorRoutes")(app);
-// require('./routes/video.routes')(app);
+require('./routes/videoRoutes')(app);
 
 // Local error handler
 app.use((req, res) =>
-  res.status(404).send("This is not the page you're looking for...")
+  res.status(404).send('This is not the page you\'re looking for...')
 );
 
 
 // GLOBAL ERROR HANDLER
 app.use((err, req, res) => {
   const defaultErr = {
-    log: "Express error handler caught unknown middleware error",
+    log: 'Express error handler caught unknown middleware error',
     status: 500,
-    message: { err: "An error occurred" },
+    message: { err: 'An error occurred' },
   };
   const errorObj = Object.assign({}, defaultErr, err);
   console.log(errorObj.log);
