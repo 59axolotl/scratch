@@ -1,40 +1,55 @@
+// const app = express();
 const express = require('express');
 const creatorController = require('../controllers/CreatorController');
 const videoController = require("../controllers/VideoController");
-const { authenticate } = require("../config/jwt.config");
+
+
 
 module.exports = function (app) {
-//     // VIDEO ROUTE HANDLERS
-//     // GET request for the 6 most recent videos to render on home feed
-//     app.get('/api/videos', (req, res) =>
-//         res.status(200).json(res.locals.recentVideos)
-//     );
+  // VIDEO ROUTE HANDLERS
+  // GET request for ALL videos to be sent to front end
+//   app.get('/api/videos', videoController.allVideos, (req, res) =>
+//     res.status(200).json(res.locals.videos)
+//   );
 
-//     // GET request for the selected video associated with a video ID
-//     app.get('/api/videos/:id', (req, res) =>
-//         res.status(200).json(res.locals.videoById)
-//     );
+  // POST request to add new document into the Video model
+  // Needs to be checked, unsure if addVideoContent model creation works
+//   app.post('/api/videos', videoController.addVideoContent, (req, res) => {
+//     return res.sendStatus(201);
+//   });
 
-//     // GET request for fetching the uploaded videos and info for a particular username
-//     // THIS NEEDS CREATORCONTROLLER because it needs to validate the creator
+    // GET request for fetching the uploaded videos and info for a particular username
+    // THIS NEEDS CREATORCONTROLLER because it needs to validate the creator
     app.get('/api/videos', videoController.getCreatorUploads, (req, res) => {
-        return res.status(200).json(res.locals.creatorUpVideos);
+    return res.status(200).json(res.locals.creatorUpVideos);
     });
 
-//     // POST request to upload new video and poster image
+  // GET request for the selected video associated with a video ID
+//   app.get('/api/videos/:id', videoController.videoById, (req, res) =>
+//     res.status(200).json(res.locals.videoById)
+//   );
+
+  // PATCH request to edit video upload contents
+  // THIS NEEDS CREATORCONTROLLER because you can only edit your own videos
+  // authentication of editing videos will be stretch
+//   app.patch('/api/videos/:id', videoController.editVideoContent, (req, res) => {
+//     return res.status(201).json(res.locals.newVideoContent);
+//   });
+    // POST request to upload new video and poster image
     app.post('/api/videos', creatorController.getLoggedInCreator, videoController.createVideo, (req, res) => {
         return res.status(201).json(res.locals.newVideoContent);
     });
 
-//     // PATCH request to edit video upload contents
-//     // THIS NEEDS USERCONTROLLER because you can only edit your own videos
-//     app.patch('/api/videos/:id', User.getLoggedInUser, (req, res) => {
-//         return res.status(201).json(res.locals.editVideoContent);
-//     });
+  // DELETE request to remove video and contents from site
+  // THIS NEEDS CREATORCONTROLLER because users can only remove their own videos
+//   app.delete('/api/videos/:id', videoController.deleteVideo, (req, res) => {
+//     return res.status(204).send('Video has been deleted.');
+//   });
 
-//     // DELETE request to remove video and contents from site
-//     // THIS NEEDS USERCONTROLLER because users can only remove their own videos
-//     app.delete('/api/videos/:id', User.getLoggedInUser, (req, res) => {
-//         return res.status(204).send('Video has been deleted.');
-//     });
+  // GET request for fetching the uploaded videos and info for a particular username
+  // THIS NEEDS CREATORCONTROLLER because it needs username
+  // Confusion regarding the method, will ignore
+  // app.get('api/videos/:username', (req, res) => {
+  //   return res.status(200).json(res.locals.userVideos);
+  // });
 };
