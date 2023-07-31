@@ -1,6 +1,8 @@
 import React from 'react';
 import '../src/styles.scss';
 import UploadForm from './UploadForm';
+import Register from './Register';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
@@ -35,9 +37,9 @@ const Navbar = () => {
             </li>
 
             <li className="nav-item">
-              <a href="javascript:void(0)" className="nav-link">
-                Sign in/Sign up
-              </a>
+              <Link type="button" className="nav-link" to={'/login'}>
+                Login/Register
+              </Link>
             </li>
           </ul>
         </div>

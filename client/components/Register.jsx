@@ -1,13 +1,16 @@
 import { react, useState, useEffect } from 'react';
+<<<<<<< HEAD
 import axios from 'axios';
+=======
+>>>>>>> dev
 import { Form, FormControl, FormLabel, Button } from 'react-bootstrap';
-
+import { useNavigate } from 'react-router-dom';
 import React from 'react';
 
 const Register = (props) => {
   const [confirmReg, setConfirmReg] = useState('');
   const [errors, setErrors] = useState({});
-
+  const navigate = useNavigate();
   const [user, setUser] = useState({
     username: '',
     email: '',
@@ -24,17 +27,19 @@ const Register = (props) => {
   };
 
   //FETCH FROM DB
-  useEffect(() => {
+  const handleRegister = (e) => {
+    e.preventDefault();
     fetch('/api/creators/register', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-      }
+      },
+      body: JSON.stringify(user),
     })
       .then((res) => res.json())
       .then((res) => {
         // setUser(...newAccountInfo);
-        console.log('SUCCESSFULLY CREATED NEW USER!!LOG IN NOW!!')
+        console.log('SUCCESSFULLY CREATED NEW USER!!LOG IN NOW!!');
       })
       .then((res) => {
         setUser({
@@ -46,33 +51,10 @@ const Register = (props) => {
         });
         setConfirmReg('Thank you for registering, you can now log in.');
         setErrors({}); //resetting error state if it was successful
+        navigate('/');
       })
       .catch((err) => {
         console.error('An error occurred while POSTING new user info: ', err);
-      });
-  });
-
-  const register = (e) => {``
-    e.preventDefault();
-    axios
-      .post('http://localhost:3000/api/creators/register', user, {
-        withCredentials: true,
-      })
-      .then((res) => {
-        console.log('res from register', res.data);
-        setUser({
-          username: '',
-          email: '',
-          password: '',
-          confirmPassword: '',
-          studio: '',
-        });
-        setConfirmReg('Thank you for registering, you can now log in.');
-        setErrors({}); //resetting error state if it was successful
-      })
-      .catch((err) => {
-        console.log(err);
-        setErrors(err.response.data.errors);
       });
   };
 
@@ -80,7 +62,7 @@ const Register = (props) => {
     <div>
       <h1>Register</h1>
       {confirmReg ? <h4 style={{ color: 'green' }}>{confirmReg}</h4> : null}
-      <form onSubmit={register}>
+      <form onSubmit={handleRegister}>
         <Form.Group className="row justify-content-center mb-3">
           <FormLabel>Username</FormLabel>
           {errors.username ? (
