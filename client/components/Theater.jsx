@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../src/styles.scss";
 import Navbar from "./Navbar";
 import { useParams } from "react-router-dom";
@@ -6,6 +6,28 @@ import { useParams } from "react-router-dom";
 const Theater = () => {
     //need a fetch to get info from the video collection based on the id params
     //useParams
+    const [video, setVideo] = useState({});
+    const { id } = useParams();
+
+    useEffect(() => {
+        fetch(`/api/videos/${id}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            credentials: "include",
+        })
+            .then((videoData) => videoData.json())
+            .then((videoData) => {
+                setVideo(videoData);
+                console.log("successfully retrieved one video");
+                console.log(videoData);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }, []);
+
     return (
         <>
             <Navbar />
@@ -24,10 +46,7 @@ const Theater = () => {
                                     Loading...
                                 </span>
                             </div>
-                            <span className="text fs-1">
-                                ------------------PUT TITLE OF FILM
-                                HERE-------------
-                            </span>
+                            <span className="text fs-1">{video.title}</span>
                             <div
                                 className="spinner-border text-primary mx-3"
                                 role="status"
