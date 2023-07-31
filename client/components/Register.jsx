@@ -23,7 +23,7 @@ const Register = (props) => {
   };
 
   //FETCH FROM DB
-  const register = () => {
+  const handleRegister = () => {
     fetch("/api/creators/register", {
       method: "POST",
       headers: {
@@ -55,7 +55,7 @@ const Register = (props) => {
     <div>
       <h1>Register</h1>
       {confirmReg ? <h4 style={{ color: "green" }}>{confirmReg}</h4> : null}
-      <form onSubmit={register}>
+      <form onSubmit={handleRegister}>
         <Form.Group className="row justify-content-center mb-3">
           <FormLabel>Username</FormLabel>
           {errors.username ? (
