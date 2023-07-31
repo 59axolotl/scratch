@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 // import axios from "axios";
-import { useNavigate } from 'react-router-dom';
-import { Button, Form, FormControl, FormLabel } from 'react-bootstrap';
+import { useNavigate } from "react-router-dom";
+import { Button, Form, FormControl, FormLabel } from "react-bootstrap";
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
-  const navigate = useNavigate();
-  const [resbody, setResBody] = useState('');
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
+    const navigate = useNavigate();
+    const [resbody, setResBody] = useState("");
 
   const handleLogin = (e) => {
     e.preventDefault();

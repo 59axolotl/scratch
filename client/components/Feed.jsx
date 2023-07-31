@@ -1,6 +1,7 @@
 import React from "react";
 import "../src/styles.scss";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const Feed = () => {
   return (
@@ -319,35 +320,38 @@ const Feed = () => {
               />
               <title>Placeholder</title>
 
-              <div className="card-body">
-                <p className="card-text">
-                  This is a wider card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </p>
-                <div className="d-flex justify-content-between align-items-center">
-                  <div className="btn-group">
-                    <Link
-                      type="button"
-                      className="btn btn-sm btn-outline-secondary"
-                      to={"/videos/:id"}
-                    >
-                      View
-                    </Link>
-                  </div>
-                  <small className="text-muted">9 mins</small>
+                            <div className="card-body">
+                                <p className="card-text">
+                                    This is a wider card with supporting text
+                                    below as a natural lead-in to additional
+                                    content. This content is a little bit
+                                    longer.
+                                </p>
+                                <div className="d-flex justify-content-between align-items-center">
+                                    <div className="btn-group">
+                                        <Link
+                                            type="button"
+                                            className="btn btn-sm btn-outline-secondary"
+                                            to={"/videos/:id"}
+                                        >
+                                            View
+                                        </Link>
+                                    </div>
+                                    <small className="text-muted">9 mins</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> */}
+                <div className="d-flex justify-content-between my-3">
+                    <button className="btn btn-outline-secondary">
+                        Previous
+                    </button>
+                    <button className="btn btn-outline-secondary">Next</button>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-        <div className="d-flex justify-content-between my-3">
-          <button className="btn btn-outline-secondary">Previous</button>
-          <button className="btn btn-outline-secondary">Next</button>
-        </div>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default Feed;

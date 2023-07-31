@@ -7,22 +7,29 @@ const videoController = require("../controllers/VideoController");
 
 module.exports = function (app) {
   // VIDEO ROUTE HANDLERS
+  
+  // GET request for fetching the uploaded videos and info for a particular username
+  app.get('/api/videos', videoController.getCreatorUploads, (req, res) => {
+    return res.status(200).json(res.locals.creatorUpVideos);
+  });
+
+  // POST request to upload new video and poster image
+  app.post('/api/videos', creatorController.getLoggedInCreator, videoController.createVideo, (req, res) => {
+    return res.status(201).json(res.locals.newVideoContent);
+  });
+
+  
   // GET request for ALL videos to be sent to front end
-//   app.get('/api/videos', videoController.allVideos, (req, res) =>
-//     res.status(200).json(res.locals.videos)
-//   );
+  app.get('/api/allVideos', videoController.allVideos, (req, res) =>
+    res.status(200).json(res.locals.videos)
+  );
+
 
   // POST request to add new document into the Video model
   // Needs to be checked, unsure if addVideoContent model creation works
 //   app.post('/api/videos', videoController.addVideoContent, (req, res) => {
 //     return res.sendStatus(201);
 //   });
-
-    // GET request for fetching the uploaded videos and info for a particular username
-    // THIS NEEDS CREATORCONTROLLER because it needs to validate the creator
-    app.get('/api/videos', videoController.getCreatorUploads, (req, res) => {
-    return res.status(200).json(res.locals.creatorUpVideos);
-    });
 
   // GET request for the selected video associated with a video ID
 //   app.get('/api/videos/:id', videoController.videoById, (req, res) =>
@@ -35,10 +42,8 @@ module.exports = function (app) {
 //   app.patch('/api/videos/:id', videoController.editVideoContent, (req, res) => {
 //     return res.status(201).json(res.locals.newVideoContent);
 //   });
-    // POST request to upload new video and poster image
-    app.post('/api/videos', creatorController.getLoggedInCreator, videoController.createVideo, (req, res) => {
-        return res.status(201).json(res.locals.newVideoContent);
-    });
+
+    
 
   // DELETE request to remove video and contents from site
   // THIS NEEDS CREATORCONTROLLER because users can only remove their own videos

@@ -4,15 +4,15 @@ import { useNavigate } from 'react-router-dom';
 
 
 const Register = (props) => {
-  const [confirmReg, setConfirmReg] = useState('');
+  const [confirmReg, setConfirmReg] = useState("");
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
   const [user, setUser] = useState({
-    username: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-    studio: '',
+    username: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    studio: "",
   });
 
   const handleChange = (e) => {
@@ -23,34 +23,35 @@ const Register = (props) => {
   };
 
   //FETCH FROM DB
-  const handleRegister = (e) => {
-    e.preventDefault();
-    fetch('/api/creators/register', {
-      method: 'POST',
+  const handleRegister = () => {
+    fetch("/api/creators/register", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(user),
     })
       .then((res) => res.json())
       .then((res) => {
         // setUser(...newAccountInfo);
-        console.log('SUCCESSFULLY CREATED NEW USER!!LOG IN NOW!!');
+        console.log("SUCCESSFULLY CREATED NEW USER!!LOG IN NOW!!");
       })
       .then((res) => {
         setUser({
-          username: '',
-          email: '',
-          password: '',
-          confirmPassword: '',
-          studio: '',
+          username: "",
+          email: "",
+          password: "",
+          confirmPassword: "",
+          studio: "",
         });
-        setConfirmReg('Thank you for registering, you can now log in.');
+        setConfirmReg("Thank you for registering, you can now log in.");
         setErrors({}); //resetting error state if it was successful
-        navigate('/');
       })
       .catch((err) => {
-        console.error('An error occurred while POSTING new user info: ', err);
+        console.error(
+          "An error occurred while POSTING new user info: ",
+          err
+        );
       });
   };
 
