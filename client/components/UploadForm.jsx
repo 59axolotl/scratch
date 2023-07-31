@@ -38,7 +38,7 @@ const UploadForm = () => {
         setCredits('');
         setDescription('');
         setImage('');
-        return videoData.json()}) 
+        return videoData.json();}) 
       .then((videoData) => {
         console.log(videoData, 'SUCCESSFULLY CREATED VIDEO!!');
       })
