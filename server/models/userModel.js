@@ -1,12 +1,13 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
-const CreatorSchema = new mongoose.Schema(
+const UserSchema = new mongoose.Schema(
   {
     // username will be a studio / company name for creators
     username: {
       type: String,
       required: [true, 'Username is required.'],
+      unique: true,
     },
     email: {
       type: String,
@@ -17,20 +18,19 @@ const CreatorSchema = new mongoose.Schema(
       required: [true, 'Password is required'],
       minLength: [8, 'Password must be at least 8 characters.'],
     },
-    studio: {
-      type: String,
-      required: [true, 'Studio name is required for creators.'],
-    },
   },
   { timestamps: true }
 );
 
+// Add this line to define the unique index for username
+UserSchema.index({ username: 1 }, { unique: true });
+
 // the 'virtual' and 'pre' fields are used for front end password validation
-CreatorSchema.virtual('confirmPassword')
+UserSchema.virtual('confirmPassword')
   .get(() => this._confirmPassword)
   .set((value) => (this._confirmPassword = value));
 
-CreatorSchema.pre('validate', function (next) {
+UserSchema.pre('validate', function (next) {
   console.log('in validate');
 
   if (this.password !== this.confirmPassword) {
@@ -41,7 +41,7 @@ CreatorSchema.pre('validate', function (next) {
 });
 
 // AUTH: the pre property is needed to handle AUTH. Takes password, hashes it, and stores it
-CreatorSchema.pre('save', function (next) {
+UserSchema.pre('save', function (next) {
   console.log('in pre save');
 
   bcrypt.hash(this.password, 10).then((hashedPassword) => {
@@ -51,6 +51,6 @@ CreatorSchema.pre('save', function (next) {
   });
 });
 
-const Creator = mongoose.model('Creator', CreatorSchema);
+const User = mongoose.model('User', UserSchema);
 
-module.exports = Creator;
+module.exports = User;

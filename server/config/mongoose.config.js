@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
+const mongoURI = process.env.mongoURI;
 
 // connecting mongoose database to app
 mongoose
-  .connect(process.env.mongoURI, {
+  .connect(mongoURI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     dbName: 'axolotl_flix',

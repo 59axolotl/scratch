@@ -6,3 +6,5 @@ node_modules
 
 # output from webpack
 dist/
+
+TEST.user.controllers copy.js

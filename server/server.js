@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const app = express();
@@ -9,30 +10,12 @@ require('./config/mongoose.config');
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(
-  cors({
-    origin: 'http://localhost:8080',
-    credentials: true,
-  })
-);
-
-app.options(
-  '*',
-  cors({
-    origin: 'http://localhost:8080',
-    credentials: true,
-  })
-);
 
 app.use(express.static(path.join(__dirname, '../dist')));
 
 // require routers
-require('./routes/creator.routes')(app);
-require('./routes/video.routes')(app);
-
-// define route handlers with crazy router syntax (WOW)
-app.use('/api/creators');
-app.use('/api/videos');
+require('./routes/creatorRoutes')(app);
+// require('./routes/video.routes')(app);
 
 // Local error handler
 app.use((req, res) =>
