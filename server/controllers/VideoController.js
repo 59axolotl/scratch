@@ -6,9 +6,9 @@ const videoController = {
   createVideo: async (req, res, next) => {
     try {
       // Sanitize information in request body
-      const { title, description, image, videoLink, createdBy } = req.body;
+      const { title, description, image, credits, videoLink } = req.body;
       // Create new video in database from sanitized request body
-      const newVideoObject = new Video({ title, description, image, videoLink, createdBy });
+      const newVideoObject = new Video({ title, description, image, credits, videoLink });
 
       // Decode JWT token
       const decodedJWT = jwt.decode(req.cookies.usertoken, {
@@ -24,7 +24,7 @@ const videoController = {
 
       return next();
     }
-    catch(err) {
+    catch (err) {
       return next({
         log: `videoController.createVideo failed to create new video, ${err.message}.`,
         status: 500,
@@ -34,15 +34,15 @@ const videoController = {
   },
 
   // Get all videos from signed in creator - GET from '/api/videos/:id'
-  getCreatorUploads: async (req,res,next) => {
+  getCreatorUploads: async (req, res, next) => {
     try {
       // Decode JWT token
       const decodedJWT = jwt.decode(req.cookies.usertoken, { complete: true });
       // Save videos from returned from database query for all videos associated with ID from decoded JWT token
-      const creatorUpVideos = await Video.find({ createdBy: decodedJWT.payload.id }).populate({path: 'createdBy', select: '_id studio '});
+      const creatorUpVideos = await Video.find({ createdBy: decodedJWT.payload.id }).populate({ path: 'createdBy', select: '_id studio ' });
       // Attach to res.locals to return to frontend
       res.locals.creatorUpVideos = creatorUpVideos;
-  
+
       return next();
     } catch (err) {
       return next({
@@ -60,10 +60,10 @@ const videoController = {
       const allVideos = await Video.find().sort({ createdAt: -1 });
       // Attach to res.locals to return to frontend
       res.locals.videos = allVideos;
-      
+
       return next();
     }
-    catch(err) {
+    catch (err) {
       return next({
         log: `VideoController.allVideos failed to find all videos: ERROR: ${err.message}.`,
         status: 500,
@@ -71,7 +71,7 @@ const videoController = {
       });
     }
   },
-  
+
   // VIDEOBYID METHOD
   videoById: async (req, res, next) => {
     try {
@@ -81,9 +81,9 @@ const videoController = {
       const singleVideo = await Video.findById(id);
       res.locals.videoById = singleVideo;
 
-      return next(); 
+      return next();
     }
-    catch(err) {
+    catch (err) {
       return next({
         log: `VideoController.videoById failed to find videos by ID: ERROR: ${err.message}.`,
         status: 500,
@@ -99,7 +99,7 @@ const videoController = {
       const { id } = req.params;
       // Sanitize information in request body
       const { title, description, image, videoLink, createdBy } = req.body;
-      
+
       // Create new update variable with required fields from request body
       const updates = {
         title,
@@ -116,7 +116,7 @@ const videoController = {
 
       return next();
     }
-    catch(err) {
+    catch (err) {
       return next({
         log: `VideoController.editVideoContent failed to edit video for ID: ERROR: ${err.message}.`,
         status: 500,
@@ -144,7 +144,7 @@ const videoController = {
 
       return next();
     }
-    catch(err) {
+    catch (err) {
       return next({
         log: `VideoController.deleteVideo failed to delete video: ERROR: ${err.message}.`,
         status: 500,
