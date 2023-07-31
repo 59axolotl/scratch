@@ -10,13 +10,13 @@ const LogReg = (props) => {
     <>
       <Navbar />
       <main className="bg-dark-subtle">
-        <div className="album py-5 bg-dark" style={{ minHeight: '100vh' }}>
-          <div className="log-reg-container">
-            <Login />
-            <br></br>
-            <Register />
-          </div>
+        {/* <div className="album py-5 bg-dark" style={{ minHeight: '100vh' }}> */}
+        <div className="log-reg-container">
+          <Login />
+          <br></br>
+          <Register />
         </div>
+        {/* </div> */}
       </main>
       <Footer />
     </>
