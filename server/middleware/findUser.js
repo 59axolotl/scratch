@@ -11,6 +11,8 @@ const auth = {
           .json({
             message: "Invalid login attempt, check email and password. ",
           });
+      }else{
+        console.log ("YAYAYAYA");
       }
 
       req.creatorRecord = creatorRecord;

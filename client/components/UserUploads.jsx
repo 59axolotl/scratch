@@ -1,9 +1,40 @@
-import React from "react";
-import "../src/styles.scss";
-import EditForm from "./EditForm";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import '../src/styles.scss';
+import EditForm from './EditForm';
+import { Link } from 'react-router-dom';
 
 const UserUploads = () => {
+  const [videos, setVideos] = useState([]);
+  let outputArray = [];
+  useEffect(() => {
+    fetch('/api/videos', {
+      //send email and password in either query or param
+      method: 'GET', //we are posting data to create cookie with JWT token inside then we expect confirmation that this user exists
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
+    })
+      .then((videoData) => videoData.json()) //res is studioId
+      .then((videoData) => {
+        //then using the studioName, we will send a
+        // setResBody(userData);
+        // console.log(resbody.message);
+        setVideos(videoData);
+        console.log(videoData, 'SUCCESSFULLY retrieved VIDEO DATA');
+      })
+      .catch((err) => {
+        console.error('An error occurred while GETTING new video info: ', err);
+      });
+  }, []);
+
+  outputArray = videos.map(()=>{return <><p>test</p></>});
+
+
+  //generate an array based on videos state array
+
+  console.log("testtesttesttesttesttesttesttesttesttesttesttesttest", outputArray);
+
   return (
     <div>
       <section className="py-5 text-center container">
@@ -37,7 +68,6 @@ const UserUploads = () => {
                     role="img"
                     aria-label="Placeholder: Thumbnail"
                     preserveAspectRatio="xMidYMid slice"
-                    focusable="false"
                   />
                   <title>Placeholder</title>
 
@@ -52,7 +82,7 @@ const UserUploads = () => {
                         <Link
                           type="button"
                           className="btn btn-sm btn-outline-secondary"
-                          to={"/videos/:id"}
+                          to={'/videos/:id'}
                         >
                           View
                         </Link>
@@ -87,7 +117,7 @@ const UserUploads = () => {
                     role="img"
                     aria-label="Placeholder: Thumbnail"
                     preserveAspectRatio="xMidYMid slice"
-                    focusable="false"
+                
                   />
                   <title>Placeholder</title>
 
@@ -102,7 +132,7 @@ const UserUploads = () => {
                         <Link
                           type="button"
                           className="btn btn-sm btn-outline-secondary"
-                          to={"/videos/:id"}
+                          to={'/videos/:id'}
                         >
                           View
                         </Link>
@@ -152,7 +182,7 @@ const UserUploads = () => {
                         <Link
                           type="button"
                           className="btn btn-sm btn-outline-secondary"
-                          to={"/videos/:id"}
+                          to={'/videos/:id'}
                         >
                           View
                         </Link>

@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 
 const creatorController = require("../controllers/CreatorController");
+
 const auth = require("../middleware/findUser");
 
 module.exports = function (app) {
@@ -12,7 +13,7 @@ module.exports = function (app) {
   // POST request to create new user and add data into mongoose
   // DONE
   app.post("/api/creators/register", creatorController.register, (req, res) => {
-    return res.sendStatus(200);
+    return res.json(res.locals.register);
   });
 
   // POST request to authenticate user
