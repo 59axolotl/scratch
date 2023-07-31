@@ -39,7 +39,7 @@ const Login = () => {
                 navigate("/");
             })
             .catch((err) => {
-                console.error(
+                console.log(
                     "An error occurred while POSTING new user info: ",
                     err
                 );
