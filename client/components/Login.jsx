@@ -26,46 +26,53 @@ const Login = () => {
     })
       .then((userData) => userData.json()) //res is studioId
       .then((userData) => {
-        //then using the studioName, we will send a
-        // setResBody(userData);
-        // console.log(resbody.message);
-        console.log(userData, 'SUCCESSFULLY CREATED NEW USER!!LOG IN NOW!!');
+        //userData could be an error message
+        console.log(userData, 'SUCCESSFULLY Logged in!!');
       })
       .then((res) => {
-        console.log('save into state?'); //i think we have to pass this user data (the video data)
         navigate('/');
       })
       .catch((err) => {
-        console.error('An error occurred while POSTING new user info: ', err);
+        console.error('An error occurred while logging in: ', err);
       });
   };
 
   return (
  
-    <div>
-      <h1>Login</h1>
+    <div style={{width: '60vw'}}>
+      <h1 className="m-5">Login</h1>
       <p className="error-text">{errorMessage ? errorMessage : ''}</p>
-      <Form onSubmit={handleLogin}>
-        <Form.Group className="row justify-content-center mb-3">
-          <FormLabel>Email</FormLabel>
-          <FormControl
-            className="w-25"
+      <Form onSubmit={handleLogin} className="m-5">
+
+        <div className="form-floating mb-3">
+          <input
             type="text"
             name="email"
+            className="form-control "
+            placeholder="Place title here"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+ 
           />
-        </Form.Group>
-        <Form.Group className="row justify-content-center mb-3">
-          <FormLabel>Password</FormLabel>
-          <FormControl
-            className="w-25"
+          <label htmlFor="email" className="form-label">
+                  Email
+          </label>
+        </div>
+        <div className="form-floating mb-3">
+          <input
             type="password"
             name="password"
+            className="form-control"
+            placeholder="Place title here"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+ 
           />
-        </Form.Group>
+          <label htmlFor="password" className="form-label">
+                  Password
+          </label>
+        </div>
+      
         <div className="center">
           <Button type="submit">Sign In</Button>
         </div>

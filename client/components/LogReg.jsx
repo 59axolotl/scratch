@@ -11,10 +11,10 @@ const LogReg = ({creator, setCreator}) => {
       <Navbar />
       <main className="bg-dark-subtle">
         {/* <div className="album py-5 bg-dark" style={{ minHeight: '100vh' }}> */}
-        <div className="log-reg-container">
-          <Login creator ={creator} setCreator ={setCreator}/>
+        <div className="d-flex flex-column align-items-center">
+          <Login />
           <br></br>
-          <Register />
+          <Register/>
         </div>
         {/* </div> */}
       </main>

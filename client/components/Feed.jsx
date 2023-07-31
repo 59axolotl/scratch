@@ -28,7 +28,7 @@ const Feed = () => {
                 role="img"
                 aria-label="Placeholder: Thumbnail"
                 preserveAspectRatio="xMidYMid slice"
-                focusable="false"
+          
               />
               <title>Placeholder</title>
 
@@ -64,7 +64,7 @@ const Feed = () => {
                 role="img"
                 aria-label="Placeholder: Thumbnail"
                 preserveAspectRatio="xMidYMid slice"
-                focusable="false"
+               
               />
               <title>Placeholder</title>
 
@@ -99,7 +99,7 @@ const Feed = () => {
                 role="img"
                 aria-label="Placeholder: Thumbnail"
                 preserveAspectRatio="xMidYMid slice"
-                focusable="false"
+             
               />
               <title>Placeholder</title>
 
@@ -135,7 +135,7 @@ const Feed = () => {
                 role="img"
                 aria-label="Placeholder: Thumbnail"
                 preserveAspectRatio="xMidYMid slice"
-                focusable="false"
+               
               />
               <title>Placeholder</title>
 
@@ -171,7 +171,7 @@ const Feed = () => {
                 role="img"
                 aria-label="Placeholder: Thumbnail"
                 preserveAspectRatio="xMidYMid slice"
-                focusable="false"
+              
               />
               <title>Placeholder</title>
 
@@ -207,7 +207,7 @@ const Feed = () => {
                 role="img"
                 aria-label="Placeholder: Thumbnail"
                 preserveAspectRatio="xMidYMid slice"
-                focusable="false"
+
               />
               <title>Placeholder</title>
 
@@ -243,7 +243,7 @@ const Feed = () => {
                 role="img"
                 aria-label="Placeholder: Thumbnail"
                 preserveAspectRatio="xMidYMid slice"
-                focusable="false"
+
               />
               <title>Placeholder</title>
 
@@ -279,7 +279,7 @@ const Feed = () => {
                 role="img"
                 aria-label="Placeholder: Thumbnail"
                 preserveAspectRatio="xMidYMid slice"
-                focusable="false"
+
               />
               <title>Placeholder</title>
 
@@ -315,7 +315,7 @@ const Feed = () => {
                 role="img"
                 aria-label="Placeholder: Thumbnail"
                 preserveAspectRatio="xMidYMid slice"
-                focusable="false"
+   
               />
               <title>Placeholder</title>
 
