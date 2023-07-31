@@ -16,10 +16,10 @@ module.exports = function (app) {
 //     );
 
 //     // GET request for fetching the uploaded videos and info for a particular username
-//     // THIS NEEDS USERCONTROLLER because it needs username
-//     app.get('api/videos/:username', User.getLoggedInUser, (req, res) => {
-//         return res.status(200).json(res.locals.userVideos);
-//     });
+//     // THIS NEEDS CREATORCONTROLLER because it needs to validate the creator
+    app.get('/api/videos', videoController.getCreatorUploads, (req, res) => {
+        return res.status(200).json(res.locals.creatorUpVideos);
+    });
 
 //     // POST request to upload new video and poster image
     app.post('/api/videos', creatorController.getLoggedInCreator, videoController.createVideo, (req, res) => {

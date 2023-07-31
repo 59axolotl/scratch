@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import '../src/styles.scss';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 //Comes from clicking the edit button from the Studio's uploaded video section of the main page
 const EditForm = () => {
+
+  //logic should be very similar to uploadform setup
   return (
     <div className="modal fade" id="edit-modal">
       <div className="modal-dialog modal-dialog-centered">
