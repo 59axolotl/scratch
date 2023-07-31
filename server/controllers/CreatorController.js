@@ -7,9 +7,9 @@ const creatorController = {
   register: async (req, res, next) => {
     try {
       // Sanitize information in request body
-      const { username, email, password, studio } = req.body;
+      const { username, email, password, studio, confirmPassword } = req.body;
       // Create new creator in database from sanitized request body
-      const creator = new Creator({ username, email, password, studio });
+      const creator = new Creator({ username, email, password, studio, confirmPassword });
       // Save new creator to database
       const newCreator = await creator.save();
 
