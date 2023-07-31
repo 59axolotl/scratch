@@ -6,7 +6,7 @@ const PORT = 3000;
 const cookieParser = require("cookie-parser");
 const cors = require('cors');
 
-require("./config/mongoose.config");
+require('./config/mongoose.config');
 
 
 app.use(cookieParser());
@@ -22,7 +22,7 @@ app.use(cors({
 app.use(express.static(path.join(__dirname, '../dist')));
 
 // require routers
-require("./routes/creatorRoutes")(app);
+require('./routes/creatorRoutes')(app);
 require('./routes/videoRoutes')(app);
 
 // Local error handler
