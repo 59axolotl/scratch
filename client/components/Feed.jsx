@@ -342,7 +342,7 @@ const Feed = () => {
                             </div>
                         </div>
                     </div>
-                </div> */}
+                </div>
                 <div className="d-flex justify-content-between my-3">
                     <button className="btn btn-outline-secondary">
                         Previous
