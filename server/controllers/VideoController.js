@@ -43,21 +43,22 @@ const videoController = {
     }
   },
 
-  // // ALLVIDEOS METHOD
-  // allVideos: async (req, res, next) => {
-  //   try {
-  //     const allVideos = await Video.find();
-  //     res.locals.videos = allVideos;
-  //     return next();
-  //   }
-  //   catch(err) {
-  //     return next({
-  //       log: 'Failed to fetch all videos',
-  //       status: 400,
-  //       message: { err: 'Problem with allVideos.videoController: ' + err.message }
-  //     });
-  //   }
-  // },
+  // ALLVIDEOS METHOD
+  // retrieves all videos in reverse chronological order 
+  allVideos: async (req, res, next) => {
+    try {
+      const allVideos = await Video.find().sort({ createdAt: -1 });
+      res.locals.videos = allVideos;
+      return next();
+    }
+    catch(err) {
+      return next({
+        log: 'Failed to fetch all videos',
+        status: 400,
+        message: { err: 'Problem with allVideos.videoController: ' + err.message }
+      });
+    }
+  },
   
   // // VIDEOBYID METHOD
   // videoById: async (req, res, next) => {
