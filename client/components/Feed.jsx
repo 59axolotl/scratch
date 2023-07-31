@@ -1,7 +1,7 @@
-import React from "react";
-import "../src/styles.scss";
-import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import React from 'react';
+import '../src/styles.scss';
+import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 const Feed = () => {
   return (
@@ -342,7 +342,7 @@ const Feed = () => {
                             </div>
                         </div>
                     </div>
-                </div> */}
+                </div>
                 <div className="d-flex justify-content-between my-3">
                     <button className="btn btn-outline-secondary">
                         Previous
