@@ -3,7 +3,7 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const PORT = 3000;
-const cookieParser = require("cookie-parser");
+const cookieParser = require('cookie-parser');
 const cors = require('cors');
 
 require('./config/mongoose.config');
