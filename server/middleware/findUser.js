@@ -1,4 +1,4 @@
-const Creator = require("../models/creatorModel");
+const Creator = require('../models/creatorModel');
 
 const auth = {
   findCreator: async (req, res, next) => {
