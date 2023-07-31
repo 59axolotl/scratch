@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const {authenticate} = require("../config/jwt.config"); 
 
 const creatorController = require('../controllers/CreatorController');
 const auth = require("../middleware/findUser");
