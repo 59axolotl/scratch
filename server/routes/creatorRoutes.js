@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 
-const creatorController = require("../controllers/creatorControllers");
+const creatorController = require('../controllers/CreatorController');
 const auth = require("../middleware/findUser");
 
 module.exports = function (app) {

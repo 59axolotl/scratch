@@ -51,6 +51,8 @@ const creatorController = {
       // Adds cookie to creator browser with signed JWT token.
       res.cookie("usertoken", token, {
         httpOnly: true,
+        domain: 'localhost',
+        path: '/',
         expires: new Date(Date.now() + 9000000),
       });
 

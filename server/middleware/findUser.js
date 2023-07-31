@@ -2,6 +2,7 @@ const Creator = require("../models/creatorModel");
 
 const auth = {
   findCreator: async (req, res, next) => {
+    console.log('authfinduser')
     try {
       const creatorRecord = await Creator.findOne({ email: req.body.email });
 
