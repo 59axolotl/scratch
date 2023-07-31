@@ -2,148 +2,156 @@ const Video = require('../models/videoModel');
 const jwt = require('jsonwebtoken');
 
 const videoController = {
-  
+  // Creates new video in database - POST request to '/api/videos'
   createVideo: async (req, res, next) => {
+    try {
+      // Sanitize information in request body
+      const { title, description, image, videoLink, createdBy } = req.body;
+      // Create new video in database from sanitized request body
+      const newVideoObject = new Video({ title, description, image, videoLink, createdBy });
 
-    const newVideoObject = new Video(req.body);
-
-    // //Keeping track of who created the listing: 
-    const decodedJWT = jwt.decode(req.cookies.usertoken, {
-      complete: true,
-    });
-
-    newVideoObject.createdBy = decodedJWT.payload.id;
-
-    await newVideoObject
-      .save()
-      .then((newVideo) => {
-            
-        res.locals.newVideoContent = newVideo;
-        return next();
-      })
-      .catch((err) => {
-        return next(err);
+      // Decode JWT token
+      const decodedJWT = jwt.decode(req.cookies.usertoken, {
+        complete: true,
       });
+
+      // Assign createdBy property to new video as ID from decoded JWT token
+      newVideoObject.createdBy = decodedJWT.payload.id;
+
+      // Save new video to database and attach to res.locals to return to frontend
+      const newVideo = await newVideoObject.save();
+      res.locals.newVideoContent = newVideo;
+
+      return next();
+    }
+    catch(err) {
+      return next({
+        log: `videoController.createVideo failed to create new video, ${err.message}.`,
+        status: 500,
+        message: { err: 'Failed to create new video.' },
+      });
+    }
   },
 
+  // Get all videos from signed in creator - GET from '/api/videos/:id'
   getCreatorUploads: async (req,res,next) => {
-
     try {
+      // Decode JWT token
       const decodedJWT = jwt.decode(req.cookies.usertoken, { complete: true });
+      // Save videos from returned from database query for all videos associated with ID from decoded JWT token
       const creatorUpVideos = await Video.find({ createdBy: decodedJWT.payload.id }).populate({path: 'createdBy', select: '_id studio '});
+      // Attach to res.locals to return to frontend
       res.locals.creatorUpVideos = creatorUpVideos;
   
       return next();
     } catch (err) {
       return next({
-        log: `videoController failed to find videos for logged in creator, ${err.message}.`,
+        log: `videoController failed to find videos for logged in creator: ERROR: ${err.message}.`,
         status: 500,
-        message: { err: "Failed to get logged in creator." },
+        message: { err: 'Failed to get logged in creator.' },
       });
     }
   },
 
-  // ALLVIDEOS METHOD
-  // retrieves all videos in reverse chronological order 
+  // Get all videos in reverse chronological order - GET from '/api/allVideos'
   allVideos: async (req, res, next) => {
     try {
+      // Save videos returned from database query for all videos in reverse chronological order (newest to oldest)
       const allVideos = await Video.find().sort({ createdAt: -1 });
+      // Attach to res.locals to return to frontend
       res.locals.videos = allVideos;
+      
       return next();
     }
     catch(err) {
       return next({
-        log: 'Failed to fetch all videos',
-        status: 400,
-        message: { err: 'Problem with allVideos.videoController: ' + err.message }
+        log: `VideoController.allVideos failed to find all videos: ERROR: ${err.message}.`,
+        status: 500,
+        message: { err: 'Failed to get all videos.' },
       });
     }
   },
   
-  // // VIDEOBYID METHOD
-  // videoById: async (req, res, next) => {
-  //   try {
-  //     const { id } = req.params.id;
-  //     const singleVideo = await Video.findById(id);
-  //     res.locals.videoById = singleVideo;
-  //     return next(); 
-  //   }
-  //   catch(err) {
-  //     return next({
-  //       log: 'Failed to fetch video by ID',
-  //       status: 400,
-  //       message: { err: 'Problem with videoById.videoController: ' + err.message }
-  //     });
-  //   }
-  // },
+  // VIDEOBYID METHOD
+  videoById: async (req, res, next) => {
+    try {
+      // sanitize route parameter 'id' from the req.params object
+      const { id } = req.params;
+      // declare singleVideo constant assign it the video associated with the passed in route parameter
+      const singleVideo = await Video.findById(id);
+      res.locals.videoById = singleVideo;
 
-  // addVideoContent: async (req, res, next) => {
-  //   try {
-  //     const { title, description, image, videoLink, createdBy } = req.body;
-  //     await Video.create({ title, description, image, videoLink, createdBy });
-  //     return next();
-  //   }
-  //   catch(err) {
-  //     return next({
-  //       log: 'Failed to add new document in Video model',
-  //       status: 400,
-  //       message: { err: 'Problem with addVideoContent.videoController: ' + err.message }
-  //     });
-  //   }
-  // },
+      return next(); 
+    }
+    catch(err) {
+      return next({
+        log: `VideoController.videoById failed to find videos by ID: ERROR: ${err.message}.`,
+        status: 500,
+        message: { err: 'Failed to get logged in creator.' },
+      });
+    }
+  },
 
-  // // EDITVIDEOCONTENT METHOD
-  // editVideoContent: async (req, res, next) => {
-  //   try {
-  //     const { id } = req.params.id;
-  //     const { title, description, image, videoLink, createdBy } = req.body;
+  // Edit video content for specific fields - PATCH from '/api/videos/:id'
+  editVideoContent: async (req, res, next) => {
+    try {
+      // Sanitize ID from request params
+      const { id } = req.params;
+      // Sanitize information in request body
+      const { title, description, image, videoLink, createdBy } = req.body;
       
-  //     const updates = {
-  //       title,
-  //       description,
-  //       image,
-  //       videoLink,
-  //       createdBy
-  //     };
+      // Create new update variable with required fields from request body
+      const updates = {
+        title,
+        description,
+        image,
+        videoLink,
+        createdBy
+      };
 
-  //     const updatedVideo = await Video.findByIdAndUpdate(id, updates, { new: true });
-  //     res.locals.newVideoContent = updatedVideo;
-  //     return next();
-  //   }
-  //   catch(err) {
-  //     return next({
-  //       log: 'Failed to edit document in Video model',
-  //       status: 400,
-  //       message: { err: 'Problem with editVideoContent.videoController: ' + err.message }
-  //     });
-  //   }
-  // },
+      // Find video by ID and update contents with sanitized update object
+      const updatedVideo = await Video.findByIdAndUpdate(id, updates, { new: true });
+      // Attach to res.locals to send to frontend
+      res.locals.newVideoContent = updatedVideo;
 
-  // // EDITVIDEOCONTENT METHOD
-  // deleteVideo: async (req, res, next) => {
-  //   try {
-  //     const { id } = req.body;
-  //     const deletedVideo = await Video.findOneAndDelete({ _id: id });
-  //     if (!deletedVideo) {
-  //       return next({
-  //         log: 'There is no video associated with that ID',
-  //         status: 400,
-  //         message: { err: 'Problem with deleteVideo.videoController: ' + err.message }
-  //       });
-  //     }
-  //     return next();
-  //   }
-  //   catch(err) {
-  //     return next({
-  //       log: 'Failed to delete document in Video model',
-  //       status: 400,
-  //       message: { err: 'Problem with deleteVideo.videoController: ' + err.message }
-  //     });
-  //   }
-  // },
+      return next();
+    }
+    catch(err) {
+      return next({
+        log: `VideoController.editVideoContent failed to edit video for ID: ERROR: ${err.message}.`,
+        status: 500,
+        message: { err: 'Failed to edit video content.' },
+      });
+    }
+  },
 
+  // DELETEVIDEOCONTENT METHOD
+  deleteVideo: async (req, res, next) => {
+    try {
+      // Sanitize route parameter id from request params
+      const { id } = req.params;
+      // find video associated with the route parameter, delete it from the Video model, and assign it to the variable deletedVideo
+      const deletedVideo = await Video.findOneAndDelete({ _id: id });
 
+      // if no video was deleted and stored into the deletedVideo variable, return an error
+      if (!deletedVideo) {
+        return next({
+          log: 'VideoController.deleteVideo failed to delete video.',
+          status: 500,
+          message: { err: 'Failed to delete video.' },
+        });
+      }
 
+      return next();
+    }
+    catch(err) {
+      return next({
+        log: `VideoController.deleteVideo failed to delete video: ERROR: ${err.message}.`,
+        status: 500,
+        message: { err: 'Failed to delete video.' },
+      });
+    }
+  },
 };
 
 module.exports = videoController;
