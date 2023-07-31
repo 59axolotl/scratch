@@ -9,30 +9,24 @@ const Login = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
-  const login = (event) => {
-    event.preventDefault();
-    axios
-      .post(
-        "http://localhost:3000/api/creators/login",
-        {
-          email: email,
-          password: password,
-        },
-        {
-          // this will force the sending of the credentials/cookies so they can be updated
-          //XMLHttpRequest from a different domain cannot set cookie values for their own domain unless withCredentials is set to true before making the request.
-          withCredentials: true,
-        }
-      )
+  const handleLogin = () => {
+    fetch("/api/creators/????", {
+      //send email and password in either query or param
+      headers: {
+        method: "POST", //we are posting data to create cookie with JWT token inside then we expect confirmation that this user exists
+        "Content-Type": "application/json",
+      },
+    })
+      .then((userData) => userData.json()) //res is studioId
+      .then((userData) => {
+        //then using the studioName, we will send a
+        console.log(userData, "SUCCESSFULLY CREATED NEW USER!!LOG IN NOW!!");
+      })
       .then((res) => {
-        console.log(res, "res");
-        console.log(res.data, "is res data.");
-        navigate("/");
+        console.log("save into state?"); //i think we have to pass this user data (the video data)
       })
       .catch((err) => {
-        console.log(err.response.data);
-        setErrorMessage(err.response.data.message);
-        ``;
+        console.error("An error occurred while POSTING new user info: ", err);
       });
   };
 
@@ -40,7 +34,7 @@ const Login = () => {
     <div>
       <h1>Login</h1>
       <p className="error-text">{errorMessage ? errorMessage : ""}</p>
-      <Form onSubmit={login}>
+      <Form onSubmit={handleLogin}>
         <Form.Group className="row justify-content-center mb-3">
           <FormLabel>Email</FormLabel>
           <FormControl
