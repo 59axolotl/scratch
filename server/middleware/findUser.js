@@ -1,4 +1,4 @@
-const Creator = require("../models/creatorModel");
+const Creator = require('../models/creatorModel');
 
 const auth = {
   findCreator: async (req, res, next) => {
@@ -11,6 +11,8 @@ const auth = {
           .json({
             message: "Invalid login attempt, check email and password. ",
           });
+      }else{
+        console.log ("YAYAYAYA");
       }
 
       req.creatorRecord = creatorRecord;

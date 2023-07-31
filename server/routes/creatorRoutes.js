@@ -1,18 +1,19 @@
 const express = require("express");
 const app = express();
 
-const creatorController = require("../controllers/creatorControllers");
+const creatorController = require("../controllers/CreatorController");
+
 const auth = require("../middleware/findUser");
 
 module.exports = function (app) {
   // CREATOR / USER ROUTE HANDLERS
   // TODO: Discuss functionality/need for route
-  // app.get('/api/creators');
+  // app.get('/api/creators/:id');
 
   // POST request to create new user and add data into mongoose
   // DONE
   app.post("/api/creators/register", creatorController.register, (req, res) => {
-    return res.sendStatus(200);
+    return res.json(res.locals.register);
   });
 
   // POST request to authenticate user
