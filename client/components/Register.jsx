@@ -1,18 +1,18 @@
-import { react, useState, useEffect } from 'react';
-import { Form, FormControl, FormLabel, Button } from 'react-bootstrap';
+import { react, useState, useEffect } from "react";
+import { Form, FormControl, FormLabel, Button } from "react-bootstrap";
 
-import React from 'react';
+import React from "react";
 
 const Register = (props) => {
-  const [confirmReg, setConfirmReg] = useState('');
+  const [confirmReg, setConfirmReg] = useState("");
   const [errors, setErrors] = useState({});
 
   const [user, setUser] = useState({
-    username: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-    studio: '',
+    username: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    studio: "",
   });
 
   const handleChange = (e) => {
@@ -24,37 +24,37 @@ const Register = (props) => {
 
   //FETCH FROM DB
   const register = () => {
-    fetch('/api/creators/register', {
-      method: 'POST',
+    fetch("/api/creators/register", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
-      }
+        "Content-Type": "application/json",
+      },
     })
       .then((res) => res.json())
       .then((res) => {
         // setUser(...newAccountInfo);
-        console.log('SUCCESSFULLY CREATED NEW USER!!LOG IN NOW!!')
+        console.log("SUCCESSFULLY CREATED NEW USER!!LOG IN NOW!!");
       })
       .then((res) => {
         setUser({
-          username: '',
-          email: '',
-          password: '',
-          confirmPassword: '',
-          studio: '',
+          username: "",
+          email: "",
+          password: "",
+          confirmPassword: "",
+          studio: "",
         });
-        setConfirmReg('Thank you for registering, you can now log in.');
+        setConfirmReg("Thank you for registering, you can now log in.");
         setErrors({}); //resetting error state if it was successful
       })
       .catch((err) => {
-        console.error('An error occurred while POSTING new user info: ', err);
+        console.error("An error occurred while POSTING new user info: ", err);
       });
   };
 
   return (
     <div>
       <h1>Register</h1>
-      {confirmReg ? <h4 style={{ color: 'green' }}>{confirmReg}</h4> : null}
+      {confirmReg ? <h4 style={{ color: "green" }}>{confirmReg}</h4> : null}
       <form onSubmit={register}>
         <Form.Group className="row justify-content-center mb-3">
           <FormLabel>Username</FormLabel>

@@ -1,16 +1,16 @@
-import React from 'react';
-import '../src/styles.scss';
-import EditForm from './EditForm';
-import { Link } from 'react-router-dom';
+import React from "react";
+import "../src/styles.scss";
+import EditForm from "./EditForm";
+import { Link } from "react-router-dom";
 
 const UserUploads = () => {
   return (
-    <>
+    <div>
       <section className="py-5 text-center container">
         <div className="row">
           <div className="col-md-10 mx-auto">
             <h1 className="fw-light" id="#studio-heading">
-              STUDIO Name's Published Works
+              STUDIO Name&apos;s Published Works
             </h1>
             <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
               <div className="col">
@@ -52,7 +52,7 @@ const UserUploads = () => {
                         <Link
                           type="button"
                           className="btn btn-sm btn-outline-secondary"
-                          to={'/videos/:id'}
+                          to={"/videos/:id"}
                         >
                           View
                         </Link>
@@ -102,7 +102,7 @@ const UserUploads = () => {
                         <Link
                           type="button"
                           className="btn btn-sm btn-outline-secondary"
-                          to={'/videos/:id'}
+                          to={"/videos/:id"}
                         >
                           View
                         </Link>
@@ -137,7 +137,7 @@ const UserUploads = () => {
                     role="img"
                     aria-label="Placeholder: Thumbnail"
                     preserveAspectRatio="xMidYMid slice"
-                    focusable="false"
+                    // focusable="false"
                   />
                   <title>Placeholder</title>
 
@@ -152,7 +152,7 @@ const UserUploads = () => {
                         <Link
                           type="button"
                           className="btn btn-sm btn-outline-secondary"
-                          to={'/videos/:id'}
+                          to={"/videos/:id"}
                         >
                           View
                         </Link>
@@ -166,7 +166,7 @@ const UserUploads = () => {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 };
 

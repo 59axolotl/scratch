@@ -1,6 +1,6 @@
-import React from 'react';
-import '../src/styles.scss';
-import { Link } from 'react-router-dom';
+import React from "react";
+import "../src/styles.scss";
+import { Link } from "react-router-dom";
 
 const Feed = () => {
   return (
@@ -43,7 +43,7 @@ const Feed = () => {
                     <Link
                       type="button"
                       className="btn btn-sm btn-outline-secondary"
-                      to={'/videos/:id'}
+                      to={"/videos/:id"}
                     >
                       View
                     </Link>
@@ -114,7 +114,7 @@ const Feed = () => {
                     <Link
                       type="button"
                       className="btn btn-sm btn-outline-secondary"
-                      to={'/videos/:id'}
+                      to={"/videos/:id"}
                     >
                       View
                     </Link>
@@ -150,7 +150,7 @@ const Feed = () => {
                     <Link
                       type="button"
                       className="btn btn-sm btn-outline-secondary"
-                      to={'/videos/:id'}
+                      to={"/videos/:id"}
                     >
                       View
                     </Link>
@@ -186,7 +186,7 @@ const Feed = () => {
                     <Link
                       type="button"
                       className="btn btn-sm btn-outline-secondary"
-                      to={'/videos/:id'}
+                      to={"/videos/:id"}
                     >
                       View
                     </Link>
@@ -222,7 +222,7 @@ const Feed = () => {
                     <Link
                       type="button"
                       className="btn btn-sm btn-outline-secondary"
-                      to={'/videos/:id'}
+                      to={"/videos/:id"}
                     >
                       View
                     </Link>
@@ -258,7 +258,7 @@ const Feed = () => {
                     <Link
                       type="button"
                       className="btn btn-sm btn-outline-secondary"
-                      to={'/videos/:id'}
+                      to={"/videos/:id"}
                     >
                       View
                     </Link>
@@ -294,7 +294,7 @@ const Feed = () => {
                     <Link
                       type="button"
                       className="btn btn-sm btn-outline-secondary"
-                      to={'/videos/:id'}
+                      to={"/videos/:id"}
                     >
                       View
                     </Link>
@@ -330,7 +330,7 @@ const Feed = () => {
                     <Link
                       type="button"
                       className="btn btn-sm btn-outline-secondary"
-                      to={'/videos/:id'}
+                      to={"/videos/:id"}
                     >
                       View
                     </Link>
