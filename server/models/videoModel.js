@@ -14,6 +14,10 @@ const VideoSchema = new mongoose.Schema(
       type: String,
       required: [true, "Image required."],
     },
+    credits: {
+      type: String,
+      required: [true, "Credits required."],
+    },
     videoLink: {
       type: String,
       required: [true, "Video link required."],

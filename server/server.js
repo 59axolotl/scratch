@@ -22,7 +22,7 @@ app.use(express.static(path.join(__dirname, "../dist")));
 
 // require routers
 require("./routes/creatorRoutes")(app);
-// require('./routes/video.routes')(app);
+require('./routes/videoRoutes')(app);
 
 // Local error handler
 app.use((req, res) =>

@@ -47,6 +47,7 @@ const creatorController = {
         },
         process.env.JWT_SECRET
       );
+      console.log("succesful login")
 
       // Adds cookie to creator browser with signed JWT token.
       res.cookie("usertoken", token, {
