@@ -1,8 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import '../src/styles.scss';
 import Navbar from './Navbar';
+import { useParams} from "react-router-dom";
 
 const Theater = () => {
+
+//need a fetch to get info from the video collection based on the id params
+//useParams
   return (
     <>
       <Navbar />

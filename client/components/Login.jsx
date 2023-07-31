@@ -10,8 +10,9 @@ const Login = () => {
   const navigate = useNavigate();
   const [resbody, setResBody] = useState('');
 
-  const handleLogin = () => {
-    fetch('http://localhost:3000/api/creators/login', {
+  const handleLogin = (e) => {
+    e.preventDefault();
+    fetch('/api/creators/login', {
       //send email and password in either query or param
       method: 'POST', //we are posting data to create cookie with JWT token inside then we expect confirmation that this user exists
       headers: {
@@ -28,10 +29,11 @@ const Login = () => {
         //then using the studioName, we will send a
         // setResBody(userData);
         // console.log(resbody.message);
-        console.log(userData, '66s sasss saaaaaa aaaaaaaa aaaaaaa  aaaaaa  aaaaaaaaaaaaaaaUCCESSFULLY CREATED NEW USER!!LOG IN NOW!!sss saaaaaa aaaaaaaa aaaaaaa  aaaaaa  aaaaaaaaaaaaaaaUCCESSFULLY CREsss saaaaaa aaaaaaaa aaaaaaa  aaaaaa  aaaaaaaaaaaaaaaUCCESSFULLY CREsss saaaaaa aaaaaaaa aaaaaaa  aaaaaa  aaaaaaaaaaaaaaaUCCESSFULLY CREsss saaaaaa aaaaaaaa aaaaaaa  aaaaaa  aaaaaaaaaaaaaaaUCCESSFULLY CREsss saaaaaa aaaaaaaa aaaaaaa  aaaaaa  aaaaaaaaaaaaaaaUCCESSFULLY CRE');
+        console.log(userData, 'SUCCESSFULLY CREATED NEW USER!!LOG IN NOW!!');
       })
       .then((res) => {
         console.log('save into state?'); //i think we have to pass this user data (the video data)
+        navigate('/');
       })
       .catch((err) => {
         console.error('An error occurred while POSTING new user info: ', err);

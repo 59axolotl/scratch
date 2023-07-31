@@ -1,8 +1,9 @@
-// const express = require('express');
-// const app = express();
-// const User = require('../controllers/user.controllers');
+const express = require('express');
+const creatorController = require('../controllers/CreatorController');
+const videoController = require("../controllers/VideoController");
+const { authenticate } = require("../config/jwt.config");
 
-// module.exports = function (app) {
+module.exports = function (app) {
 //     // VIDEO ROUTE HANDLERS
 //     // GET request for the 6 most recent videos to render on home feed
 //     app.get('/api/videos', (req, res) =>
@@ -21,10 +22,9 @@
 //     });
 
 //     // POST request to upload new video and poster image
-//     // THIS NEEDS USERCONTROLLER because you need an account to upload
-//     app.post('/api/videos', User.getLoggedInUser, (req, res) => {
-//         return res.status(201).json(res.locals.newVideoContent);
-//     });
+    app.post('/api/videos', creatorController.getLoggedInCreator, videoController.createVideo, (req, res) => {
+        return res.status(201).json(res.locals.newVideoContent);
+    });
 
 //     // PATCH request to edit video upload contents
 //     // THIS NEEDS USERCONTROLLER because you can only edit your own videos
@@ -37,4 +37,4 @@
 //     app.delete('/api/videos/:id', User.getLoggedInUser, (req, res) => {
 //         return res.status(204).send('Video has been deleted.');
 //     });
-// };
+};

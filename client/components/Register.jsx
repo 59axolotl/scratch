@@ -1,12 +1,12 @@
 import { react, useState, useEffect } from 'react';
 import { Form, FormControl, FormLabel, Button } from 'react-bootstrap';
-
+import { useNavigate } from 'react-router-dom';
 import React from 'react';
 
 const Register = (props) => {
   const [confirmReg, setConfirmReg] = useState('');
   const [errors, setErrors] = useState({});
-
+  const navigate = useNavigate();
   const [user, setUser] = useState({
     username: '',
     email: '',
@@ -23,7 +23,8 @@ const Register = (props) => {
   };
 
   //FETCH FROM DB
-  const handleRegister = () => {
+  const handleRegister = (e) => {
+    e.preventDefault();
     fetch('/api/creators/register', {
       method: 'POST',
       headers: {
@@ -46,6 +47,7 @@ const Register = (props) => {
         });
         setConfirmReg('Thank you for registering, you can now log in.');
         setErrors({}); //resetting error state if it was successful
+        navigate('/');
       })
       .catch((err) => {
         console.error('An error occurred while POSTING new user info: ', err);
