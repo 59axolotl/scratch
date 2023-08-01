@@ -17,7 +17,7 @@ const UploadForm = () => {
   
     fetch('/api/videos', {
       //send email and password in either query or param
-      method: 'POST', //we are posting data to create cookie with JWT token inside then we expect confirmation that this user exists
+      method: 'POST', 
       headers: {
         'Content-Type': 'application/json',
       },

@@ -5,6 +5,7 @@ const videoController = {
   // Creates new video in database - POST request to '/api/videos'
   createVideo: async (req, res, next) => {
     try {
+
       // Sanitize information in request body
       const { title, description, image, credits, videoLink } = req.body;
       // Create new video in database from sanitized request body

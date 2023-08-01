@@ -1,18 +1,17 @@
-import React, {useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Form, FormControl, FormLabel, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
-
 const Register = (props) => {
-  const [confirmReg, setConfirmReg] = useState("");
+  const [confirmReg, setConfirmReg] = useState('');
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
   const [user, setUser] = useState({
-    username: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-    studio: "",
+    username: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+    studio: '',
   });
 
   const handleChange = (e) => {
@@ -24,45 +23,48 @@ const Register = (props) => {
 
   //FETCH FROM DB
   const handleRegister = () => {
-    fetch("/api/creators/register", {
-      method: "POST",
+    fetch('/api/creators/register', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(user),
     })
       .then((res) => res.json())
       .then((res) => {
         // setUser(...newAccountInfo);
-        console.log("SUCCESSFULLY CREATED NEW USER!!LOG IN NOW!!");
+        console.log('SUCCESSFULLY CREATED NEW USER!!LOG IN NOW!!');
       })
       .then((res) => {
         setUser({
-          username: "",
-          email: "",
-          password: "",
-          confirmPassword: "",
-          studio: "",
+          username: '',
+          email: '',
+          password: '',
+          confirmPassword: '',
+          studio: '',
         });
-        setConfirmReg("Thank you for registering, you can now log in.");
+        setConfirmReg('Thank you for registering, you can now log in.');
         setErrors({}); //resetting error state if it was successful
       })
       .catch((err) => {
         console.error(
-          "An error occurred while POSTING new user info: ",
+          'An error occurred while POSTING new user info: ',
           err
         );
       });
   };
 
   return (
-    <div style={{width: '60vw'}}>
+    <div style={{ width: '60vw' }}>
       <h1 className="m-5">Register</h1>
-      {confirmReg ? <h4 style={{ color: 'green' }}>{confirmReg}</h4> : null}
+      {confirmReg ? (
+        <h4 style={{ color: 'green' }}>{confirmReg}</h4>
+      ) : null}
       <form onSubmit={handleRegister} className="m-5">
-      
         {errors.username ? (
-          <span className="error-text">{errors.username.message}</span>
+          <span className="error-text">
+            {errors.username.message}
+          </span>
         ) : null}
         <div className="form-floating mb-3">
           <input
@@ -72,10 +74,9 @@ const Register = (props) => {
             placeholder="Place title here"
             value={user.username}
             onChange={(e) => handleChange(e)}
- 
           />
           <label htmlFor="username" className="form-label">
-                  Username
+                        Username
           </label>
         </div>
 
@@ -90,16 +91,16 @@ const Register = (props) => {
             placeholder="Place email here"
             value={user.email}
             onChange={handleChange}
- 
           />
           <label htmlFor="username" className="form-label">
-                  E-mail
+                        E-mail
           </label>
         </div>
 
-       
         {errors.password ? (
-          <span className="error-text">{errors.password.message}</span>
+          <span className="error-text">
+            {errors.password.message}
+          </span>
         ) : null}
         <div className="form-floating mb-3">
           <input
@@ -109,16 +110,16 @@ const Register = (props) => {
             placeholder="Place email here"
             value={user.password}
             onChange={handleChange}
- 
           />
           <label htmlFor="password" className="form-label">
-                  Password
+                        Password
           </label>
         </div>
 
-        
         {errors.confirmPassword ? (
-          <span className="error-text">{errors.confirmPassword.message}</span>
+          <span className="error-text">
+            {errors.confirmPassword.message}
+          </span>
         ) : null}
         <div className="form-floating mb-3">
           <input
@@ -128,14 +129,12 @@ const Register = (props) => {
             placeholder="Place email here"
             value={user.confirmPassword}
             onChange={handleChange}
- 
           />
           <label htmlFor="confirmPassword" className="form-label">
-                  Confirm Password
+                        Confirm Password
           </label>
         </div>
 
-        
         {errors.studio ? (
           <span className="error-text">{errors.studio.message}</span>
         ) : null}
@@ -147,13 +146,11 @@ const Register = (props) => {
             placeholder="Place email here"
             value={user.studio}
             onChange={handleChange}
- 
           />
           <label htmlFor="studio" className="form-label">
-                  Studio Name
+                        Studio Name
           </label>
         </div>
-
 
         <div className="center">
           <Button type="submit">Register</Button>
