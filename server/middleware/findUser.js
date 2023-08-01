@@ -9,10 +9,8 @@ const auth = {
         return res
           .status(400)
           .json({
-            message: "Invalid login attempt, check email and password. ",
+            message: 'Invalid login attempt, check email and password. ',
           });
-      }else{
-        console.log ("YAYAYAYA");
       }
 
       req.creatorRecord = creatorRecord;
@@ -21,7 +19,7 @@ const auth = {
       return next({
         log: `findCreator failed to find creator, ${err.message}.`,
         status: 500,
-        message: { err: "Failed to get logged in creator." },
+        message: { err: 'Failed to get logged in creator.' },
       });
     }
   },

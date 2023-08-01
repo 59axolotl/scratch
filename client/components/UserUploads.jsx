@@ -32,7 +32,7 @@ const UserUploads = () => {
     const title = film.title;
     const desc = film.description;
     const img = film.image;
-    const id = film.id;
+    const id = film._id;
 
     return (
       <div className='col' key={id}>
@@ -46,7 +46,7 @@ const UserUploads = () => {
             >
               Edit
             </button>
-            <EditForm />
+            <EditForm videos={videos} />
           </div>
 
           <img
@@ -71,7 +71,7 @@ const UserUploads = () => {
                 <Link
                   type='button'
                   className='btn btn-sm btn-outline-secondary'
-                  to={'/videos/:id'}
+                  to={`/videos/${id}`}
                 >
                   View
                 </Link>
