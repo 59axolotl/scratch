@@ -21,7 +21,7 @@ const UserUploads = () => {
       .then((videoData) => {
         setVideos(videoData);
         setStudioName(videoData[0].createdBy.studio);
-        // console.log(videoData[0].createdBy.studio);
+
       })
       .catch((err) => {
         console.error('An error occurred while GETTING new video info: ', err);

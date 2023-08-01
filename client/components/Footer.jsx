@@ -8,7 +8,7 @@ const Footer = () => {
         <p className="float-end mb-1">
           <a href="#">Back to top</a>
         </p>
-        <p className="m-4">This is the bottom footer</p>
+        <p className="m-4">Axolotl Flix</p>
       </div>
     </footer>
   );
