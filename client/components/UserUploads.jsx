@@ -86,21 +86,22 @@ const UserUploads = () => {
   });
 
   return (
-    <div>
-      <section className='py-5 text-center container'>
-        <div className='row'>
-          <div className='col-md-10 mx-auto'>
-            <h1 className='fw-light' id='#studio-heading'>
-              {studioName}&apos;s Published Works
-            </h1>
-            <div className='row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3'>
-              {/* here is where the videos from the db are mapped and rendered */}
-              {outputArray}
+    <>{outputArray.length !== 0 ? (
+      <div>
+        <section className='py-5 text-center container'>
+          <div className='row'>
+            <div className='col-md-10 mx-auto'>
+              <h1 className='fw-light' id='#studio-heading'>
+                {studioName}&apos;s Published Works
+              </h1>
+              <div className='row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3'>
+                {/* here is where the videos from the db are mapped and rendered */}
+                {outputArray}
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-    </div>
+        </section>
+      </div> ) : null}</>
   );
 };
 
